@@ -9,22 +9,21 @@ import LoginPage from "./Pages/Login/LoginPage";
 function App() {
   return (
     <Router>
-      <Nav image={require("./Logo/SheCodes-Logo.png")}>
-        <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-          <Route path="/Login">
-            <LoginPage />
-          </Route>
-          {/* <Route path="/SignUpPage">
+      <Nav image={require("./Logo/SheCodes-Logo.png")} />
+      <Switch>
+        <Route path="/login">
+          <LoginPage />
+        </Route>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        {/* <Route path="/SignUpPage">
               <SignUpPage />
             </Route> */}
-          {/* <Route path="*">
+        {/* <Route path="*">
               <NotFound />
             </Route> */}
-        </Switch>
-      </Nav>
+      </Switch>
     </Router>
   );
 }
