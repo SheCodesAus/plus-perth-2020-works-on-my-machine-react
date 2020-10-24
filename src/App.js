@@ -9,7 +9,7 @@ import LoginPage from "./Pages/Login/LoginPage";
 function App() {
   return (
     <Router>
-      <Nav>
+      <Nav image={require("./Logo/SheCodes-Logo.png")}>
         <Switch>
           <Route exact path="/">
             <HomePage />
