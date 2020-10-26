@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Nav.css";
+import Button from "../Button/Button";
 
 function Nav(props) {
   //template
@@ -10,20 +11,23 @@ function Nav(props) {
   return (
     <div>
       <div>
-        <img className="Logo" src={image} alt="Logo" />
+        <div div className="header">
+          <img className="Logo" src={image} alt="Logo" />
+          <Button value="&#123; Login &#125;" type="submit" />
+          {/* <Link to="/login"> Login </Link> */}
+        </div>
       </div>
-      <div className="Menu">
-        <Link to="/">Home</Link>
+      <div className="nav">
+        <div className="Menu1">
+          <Link to="/">Home</Link>
+        </div>
+        <div className="Menu1">
+          <Link to="/"> Calendar</Link>
+        </div>
+        <div>
+          <Link to="/">Mentors</Link>
+        </div>
       </div>
-      <div className="Menu">
-        <Link to="/"> Calendar</Link>
-      </div>
-      <div className="Menu">
-        <Link to="/">Mentors</Link>
-      </div>
-      <button className="Button">
-        <Link to="/login">Login</Link>
-      </button>
     </div>
   );
 }
