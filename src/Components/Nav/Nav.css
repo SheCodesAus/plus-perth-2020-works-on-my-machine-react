@@ -14,7 +14,8 @@
   font: bold;
   border-right: 2px solid #faa524;
   height: 30px;
-  margin-right: 3vw;
+  margin-right: 2vw;
+  padding-right: 2vw;
 }
 
 .nav a {
