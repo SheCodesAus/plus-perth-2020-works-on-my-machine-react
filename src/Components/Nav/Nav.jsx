@@ -13,7 +13,7 @@ function Nav(props) {
       <div>
         <div div className="header">
           <img className="Logo" src={image} alt="Logo" />
-          <Button value="&#123; Login &#125;" type="submit" />
+          <Button url="/login" value="&#123; Login &#125;" type="submit" />
           {/* <Link to="/login"> Login </Link> */}
         </div>
       </div>
@@ -25,7 +25,7 @@ function Nav(props) {
           <Link to="/"> Calendar</Link>
         </div>
         <div>
-          <Link to="/">Mentors</Link>
+          <Link to="/mentorlist">Mentors</Link>
         </div>
       </div>
     </div>

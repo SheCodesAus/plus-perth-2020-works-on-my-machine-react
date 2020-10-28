@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./LoginForm.css";
-
 // import { useHistory } from "react-router-dom";
+import "./MentorForm.css";
 
-function LoginForm() {
+function MentorForm() {
   //   // variables
   //   const [credentials, setCredentials] = useState({
   //     username: "",
@@ -45,23 +44,60 @@ function LoginForm() {
 
   //template
   return (
-    <div className="LoginForm">
+    <div className="MentorForm">
       <form>
         <div>
-          <label htmlFor="username"> Username </label>
+          <label htmlFor="Name"> Name </label>
           <input
             type="text"
-            id="username"
-            placeholder="Enter username"
+            id="Name"
+            placeholder="Name:"
             // onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor="password"> Password </label>
+          <label htmlFor="email"> Email </label>
           <input
-            type="password"
-            id="password"
-            placeholder="Enter password"
+            type="email"
+            id="email"
+            placeholder="Enter email"
+            // onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="phone"> Phone number </label>
+          <input
+            type="phone"
+            id="phone"
+            placeholder="Enter Phone number"
+            // onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="MentorType"> Mentor Type </label>
+          <input
+            type="Dropdown"
+            id="MentorType"
+            placeholder="Select Mentor Type"
+            name="Mentor Type"
+            options={["Industry", "Lead", "Junior"]}
+            // onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="Bio"> Mentor Bio </label>
+          <input
+            type="text"
+            id="MentorBio"
+            placeholder="Mentor Bio"
+            // onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="Skills"> Skills </label>
+          <input
+            type="checkbox"
+            id="skills"
             // onChange={handleChange}
           />
         </div>
@@ -72,11 +108,11 @@ function LoginForm() {
             id="login"
             // onClick={handleSubmit}
           >
-            Login
+            Submit
           </button>
         </div>
       </form>
     </div>
   );
 }
-export default LoginForm;
+export default MentorForm;

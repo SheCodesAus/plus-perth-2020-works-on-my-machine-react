@@ -4,7 +4,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./Components/Nav/Nav";
 import HomePage from "./Pages/Home/HomePage";
-import LoginPage from "./Pages/Login/LoginPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import MentorList from "./Pages/MentorsList/MentorsList";
+import MentorForm from "./Components/MentorForm/MentorForm";
+import MentorProfile from "./Pages/MentorProfile/MentorProfile";
 
 function App() {
   return (
@@ -13,6 +16,15 @@ function App() {
       <Switch>
         <Route path="/login">
           <LoginPage />
+        </Route>
+        <Route path="/mentorprofile/:id">
+          <MentorProfile />
+        </Route>
+        <Route path="/mentorlist">
+          <MentorList />
+        </Route>
+        <Route path="/addmentor">
+          <MentorForm />
         </Route>
         <Route exact path="/">
           <HomePage />
