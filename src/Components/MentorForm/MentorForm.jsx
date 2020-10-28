@@ -44,8 +44,8 @@ function MentorForm() {
 
   //template
   return (
-    <div className="MentorForm">
-      <form>
+    <div>
+      <form className="MentorForm">
         <div>
           <label htmlFor="Name"> Name </label>
           <input

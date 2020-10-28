@@ -8,6 +8,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import MentorList from "./Pages/MentorsList/MentorsList";
 import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorProfile from "./Pages/MentorProfile/MentorProfile";
+import Calendar from "./Pages/Calendar/Calendar";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/addmentor">
           <MentorForm />
+        </Route>
+        <Route path="/calendar">
+          <Calendar />
         </Route>
         <Route exact path="/">
           <HomePage />

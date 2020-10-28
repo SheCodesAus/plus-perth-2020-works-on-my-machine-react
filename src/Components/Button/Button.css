@@ -12,8 +12,8 @@
   text-align: center;
   transition: all 0.2s;
   margin: 5px;
-  height: 100px;
   background-color: Transparent;
+  height: 100px;
 }
 
 .btn:hover {

@@ -22,7 +22,7 @@ function Nav(props) {
           <Link to="/">Home</Link>
         </div>
         <div className="Menu1">
-          <Link to="/"> Calendar</Link>
+          <Link to="/calendar"> Calendar</Link>
         </div>
         <div>
           <Link to="/mentorlist">Mentors</Link>
