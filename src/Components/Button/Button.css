@@ -1,0 +1,25 @@
+.btn-container {
+  margin: 1vw;
+}
+
+.btn {
+  display: inline-block;
+  border: none;
+  text-decoration: none;
+  font-size: 2vw;
+  font-weight: bold;
+  color: #faa524;
+  text-align: center;
+  transition: all 0.2s;
+  margin: 5px;
+  background-color: Transparent;
+  height: 100px;
+}
+
+.btn:hover {
+  color: #79479c;
+}
+
+.btn:focus {
+  outline: none;
+}
