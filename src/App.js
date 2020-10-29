@@ -1,10 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import "./App.css";
-
-function App() {
-  return <div className="App"></div>;
-=======
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // import { createBrowserHistory } from "history";
 import "./App.css";
@@ -48,7 +42,6 @@ function App() {
       </Switch>
     </Router>
   );
->>>>>>> bac826af08c6e1c0d72625f6bdd21fc7747c607f
 }
 
 export default App;
