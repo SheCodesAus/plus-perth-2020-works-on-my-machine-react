@@ -1,3 +1,8 @@
+.calendar-component {
+  width: 90%;
+  margin: 1vw auto;
+}
+
 .rbc-toolbar-label {
   font-size: calc(10px + 1vw);
 }

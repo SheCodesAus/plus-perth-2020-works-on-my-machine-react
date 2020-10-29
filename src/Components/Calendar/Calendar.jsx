@@ -39,7 +39,7 @@ function MyCalendar() {
   ];
   console.log(events);
   return (
-    <div style={{ height: "500pt" }}>
+    <div className="calendar-component" style={{ height: "500pt" }}>
       <Calendar
         events={events}
         startAccessor="start"
