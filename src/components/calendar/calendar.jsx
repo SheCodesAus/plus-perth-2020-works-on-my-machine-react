@@ -21,8 +21,8 @@ function MyCalendar() {
       id: 0,
       title: "All Day Event very long title",
       allDay: false,
-      start: new Date(2020, 9, 10),
-      end: new Date(2020, 9, 11),
+      start: new Date(2020, 9, 10, 9, 30),
+      end: new Date(2020, 9, 10, 13, 30),
     },
     {
       id: 1,
