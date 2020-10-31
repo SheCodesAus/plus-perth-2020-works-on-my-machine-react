@@ -35,14 +35,12 @@ function MentorList() {
           type="Submit"
         />
       </div>
-      <h1> Mentor list </h1>
-      {mentorList.map((mentorData, key) => {
-        return (
-          <Link to="/mentorprofile/">
-            <MentorProfileCard key={key} mentorData={mentorData} />
-          </Link>
-        );
-      })}
+      <div>
+        <h1 className="header-list"> Mentor list </h1>
+        {mentorList.map((mentor, key) => {
+          return <MentorProfileCard key={key} mentorData={mentor} />;
+        })}
+      </div>
     </div>
   );
 }

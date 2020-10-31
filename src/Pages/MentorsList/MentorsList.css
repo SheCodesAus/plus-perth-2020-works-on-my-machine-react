@@ -16,3 +16,12 @@
   height: 100px;
   background-color: Transparent;
 }
+
+.header-list {
+  border: #79479c solid 10px;
+  background: #79479c;
+  color: #faa524;
+  display: flex;
+  justify-content: center;
+  border-radius: 3px 3px 0px 0px;
+}
