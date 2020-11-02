@@ -47,13 +47,3 @@ function MentorList() {
   );
 }
 export default MentorList;
-
-{
-  /* <div>
-  {projectList.map((projectData, key) => {
-    return <ProjectCard key={key} projectData={projectData} />;
-  })}
-</div>
-<Footer />
-</div> */
-}

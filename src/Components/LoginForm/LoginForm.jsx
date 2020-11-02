@@ -1,47 +1,47 @@
 import React, { useState } from "react";
 import "./LoginForm.css";
 
-// import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 function LoginForm() {
   //   // variables
-  //   const [credentials, setCredentials] = useState({
-  //     username: "",
-  //     password: "",
-  //   });
-  //   const history = useHistory();
+  const [credentials, setCredentials] = useState({
+    username: "",
+    password: "",
+  });
+  const history = useHistory();
 
-  //   // methods
-  //   const handleChange = (e) => {
-  //     const { id, value } = e.target;
-  //     setCredentials((prevCredentials) => ({
-  //       ...prevCredentials,
-  //       [id]: value,
-  //     }));
-  //   };
-  //   const postData = async () => {
-  //     const response = await fetch(
-  //       //   ${process.env.REACT_APP_API_URL}api-token-auth/,
-  //       {
-  //         method: "post",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify(credentials),
-  //       }
-  //     );
-  //     return response.json();
-  //   };
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     if (credentials.username && credentials.password) {
-  //       postData().then((response) => {
-  //         console.log(response.token);
-  //         window.localStorage.setItem("token", response.token);
-  //         history.push("/");
-  //       });
-  //     }
-  //   };
+  // methods
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setCredentials((prevCredentials) => ({
+      ...prevCredentials,
+      [id]: value,
+    }));
+  };
+  const postData = async () => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}api-token-auth/`,
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(credentials),
+      }
+    );
+    return response.json();
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (credentials.username && credentials.password) {
+      postData().then((response) => {
+        console.log(response.token);
+        window.localStorage.setItem("token", response.token);
+        history.push("/");
+      });
+    }
+  };
 
   //template
   return (
