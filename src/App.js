@@ -4,7 +4,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
 import Nav from "./Components/Nav/Nav";
 import HomePage from "./Pages/Home/HomePage";
-import LoginPage from "./Pages/Login/LoginPage";
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import MentorList from "./Pages/MentorsList/MentorsList";
+import MentorForm from "./Components/MentorForm/MentorForm";
+import MentorProfile from "./Pages/MentorProfile/MentorProfile";
+import Calendar from "./Pages/Calendar/Calendar";
 
 function App() {
   return (
@@ -13,6 +17,18 @@ function App() {
       <Switch>
         <Route path="/login">
           <LoginPage />
+        </Route>
+        <Route path="/mentorprofile/:id">
+          <MentorProfile />
+        </Route>
+        <Route path="/mentorlist">
+          <MentorList />
+        </Route>
+        <Route path="/addmentor">
+          <MentorForm />
+        </Route>
+        <Route path="/calendar">
+          <Calendar />
         </Route>
         <Route exact path="/">
           <HomePage />
@@ -29,28 +45,3 @@ function App() {
 }
 
 export default App;
-
-// import logo from './logo.svg';
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
-
-// export default App;
