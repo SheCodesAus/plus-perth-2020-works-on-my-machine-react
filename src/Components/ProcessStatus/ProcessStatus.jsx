@@ -21,12 +21,6 @@ function ProcessStatus() {
     setTodos(newTodos);
   };
 
-  const removeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    setTodos(newTodos);
-  };
-
   const handleChange = (e) => {
     const { id, value } = e.target;
     setTodos((newTodos) => ({
@@ -46,7 +40,6 @@ function ProcessStatus() {
             key={index}
             index={index}
             completeTodo={completeTodo}
-            removeTodo={removeTodo}
           />
         ))}
       </div>

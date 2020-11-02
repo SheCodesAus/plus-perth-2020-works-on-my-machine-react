@@ -35,7 +35,7 @@ function MentorList() {
           type="Submit"
         />
       </div>
-      <div>
+      <div className="all-mentor">
         <h1 className="header-list"> Mentor list </h1>
         {mentorList.map((mentor, key) => {
           return <MentorProfileCard key={key} mentorData={mentor} />;
