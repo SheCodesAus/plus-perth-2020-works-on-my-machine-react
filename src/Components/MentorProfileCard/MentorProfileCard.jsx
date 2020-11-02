@@ -9,7 +9,7 @@ function MentorProfileCard(props) {
 
   // template
   return (
-    <div className="project-card">
+    <div className="mentor-card">
       <Link to={`/mentorprofile/${mentorData.id}`}>
         <h3 className="card-title">{mentorData.mentor_name}</h3>
         <div className="card-details">

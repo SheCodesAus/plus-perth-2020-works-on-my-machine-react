@@ -38,7 +38,7 @@ function ProcessStatus() {
   // template
   return (
     <div>
-      <div className="project-card">
+      <div className="mentor-card">
         <h4 className="top_card">Mentor - Status </h4>
         {todos.map((todo, index) => (
           <Steps
