@@ -1,17 +1,13 @@
-.project-card {
-  width: 100%;
+.mentor-card {
+  width: 30%;
   box-shadow: 0px 0px 5px gray;
   margin: 5px;
+  border-radius: 5px;
 }
-.project-card img {
+.mentor-card img {
   width: 100%;
   height: 200px;
   object-fit: cover;
-}
-
-.card-title {
-  margin: 15px;
-  color: #79479c;
 }
 
 .card-details {
