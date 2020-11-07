@@ -10,7 +10,7 @@ function HomePage() {
       <div className="all-mentor">
         <h1 className="header-list"> Mentor list </h1>
         {mentorList.map((mentor, key) => {
-          return <MentorToDo key={key} id={key} mentorData={mentor} />;
+          return <MentorToDo id={key} mentorData={mentor} />;
         })}
       </div>
     </div>

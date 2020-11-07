@@ -9,40 +9,50 @@ function ImportCsv() {
   const [mentorData, setMentorData] = useState({});
 
   const handleOnDrop = (data) => {
-    console.log("----->", data);
+    setMentorData(data);
   };
 
-  const SendMentorData = () => {
-    fetch("http://localhost:3000/mentorlist", {
-      mode: "no-cors",
-      method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-        Accept: "application/json",
-        type: "mentorData",
-      },
-      body: mentorData,
-    });
-    console
-      .then((results) => {
-        return results.json();
-      })
-      .then((data) => {
-        setMentorData(data);
-      });
+  useEffect(() => {
+    return () => console.log("--------->", mentorData);
+  });
+  const SendMentorData = (e) => {
+    e.preventDefault();
+    console.log(mentorData);
+
+    // fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_file_upload/`, {
+    //   mode: "no-cors",
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "multipart/form-data",
+    //     Accept: "application/json",
+    //     type: "mentorData",
+    //   },
+    //   body: mentorData,
+    // })
+    //   .then((results) => {
+    //     return results.json();
+    //   })
+    //   .then((data) => {
+    //     setMentorData(data);
+    //   });
   };
 
   return (
-    <form>
-      <CSVReader onDrop={handleOnDrop}>
-        <span> Drop CSV file here </span>
-      </CSVReader>
-      <Button
-        onClick={() => SendMentorData()}
-        value="&#123; Submit &#125;"
-        type="submit"
-      />
-    </form>
+    <div>
+      {/* {mentorData != null &&
+        mentorData.map((mentor, key) => {
+          return <p key={key}>{mentor}</p>;
+        })}
+      } */}
+      <form>
+        <CSVReader onDrop={handleOnDrop}>
+          <span> Drop CSV file here </span>
+        </CSVReader>
+        <button type="submit" onClick={SendMentorData}>
+          Submit
+        </button>
+      </form>
+    </div>
   );
 }
 
