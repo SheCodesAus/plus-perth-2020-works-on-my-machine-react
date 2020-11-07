@@ -1,0 +1,10 @@
+.fp-container {
+  height: 85vh;
+  background: #f8f8f8ad;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fp-loader {
+  width: 20vw;
+}
