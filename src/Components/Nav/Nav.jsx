@@ -1,12 +1,32 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useLocation,
+  Link,
+} from "react-router-dom";
 import "./Nav.css";
 import Button from "../Button/Button";
+import LoadingSpinner from "../FullPageLoader/FullPageLoader";
 
 function Nav(props) {
   //template
-
   const { image } = props;
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+    token !== null ? setLoggedIn(true) : setLoggedIn(false);
+    setLoading(false);
+  }, [location]);
+
+  if (loading) return <LoadingSpinner />;
+
+  if (!loggedIn) return null;
 
   return (
     <div>
