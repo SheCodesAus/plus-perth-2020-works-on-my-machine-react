@@ -39,18 +39,11 @@ function ImportCsv() {
 
   return (
     <div>
-      {/* {mentorData != null &&
-        mentorData.map((mentor, key) => {
-          return <p key={key}>{mentor}</p>;
-        })}
-      } */}
       <form>
         <CSVReader onDrop={handleOnDrop}>
           <span> Drop CSV file here </span>
         </CSVReader>
-        <button type="submit" onClick={SendMentorData}>
-          Submit
-        </button>
+        <Button type="submit" onClick={SendMentorData} value="Submit" />
       </form>
     </div>
   );

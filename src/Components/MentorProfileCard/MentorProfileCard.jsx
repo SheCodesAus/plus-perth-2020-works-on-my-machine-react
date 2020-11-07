@@ -1,22 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import "./MentorProfileCard.css";
 
-function MentorProfileCard() {
+function MentorProfileCard(props) {
   //variables
-
-  const [mentorData, setMentorData] = useState([]);
-
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_profile`)
-      .then((results) => {
-        console.log("---->", results);
-        return results.json();
-      })
-      .then((data) => {
-        setMentorData(data);
-      });
-  }, []);
+  const { mentorData } = props;
 
   // template
   return (
