@@ -5,13 +5,10 @@ import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 import "./LandingPage.css";
 
 function LandingPage() {
-  const [loading, setLoading] = useState(false);
   const googleLogIn = async () => {
     window.location = `${process.env.REACT_APP_API_URL}users/social-auth`;
-    // setLoading(true)
   };
 
-  // if (loading) return <LoadingSpinner />
   return (
     <div>
       <div className="img-container">

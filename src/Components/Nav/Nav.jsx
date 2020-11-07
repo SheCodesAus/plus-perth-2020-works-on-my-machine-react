@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useLocation,
-  Link,
-} from "react-router-dom";
+import { useLocation, useHistory, Link } from "react-router-dom";
 import "./Nav.css";
 import Button from "../Button/Button";
 import LoadingSpinner from "../FullPageLoader/FullPageLoader";
@@ -17,6 +11,12 @@ function Nav(props) {
   const [loading, setLoading] = useState(true);
 
   const location = useLocation();
+  const history = useHistory();
+
+  const logOut = () => {
+    window.localStorage.clear();
+    history.push("/");
+  };
 
   useEffect(() => {
     const token = window.localStorage.getItem("token");
@@ -33,8 +33,7 @@ function Nav(props) {
       <div>
         <div div className="header">
           <img className="Logo" src={image} alt="Logo" />
-          <Button url="/login" value="&#123; Login &#125;" type="submit" />
-          {/* <Link to="/login"> Login </Link> */}
+          <Button onClick={logOut} value="&#123; Logout &#125;" type="submit" />
         </div>
       </div>
       <div className="nav">
