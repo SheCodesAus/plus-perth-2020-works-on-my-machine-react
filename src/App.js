@@ -9,6 +9,8 @@ import MentorList from "./Pages/MentorsList/MentorsList";
 import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorProfile from "./Pages/MentorProfile/MentorProfile";
 import Calendar from "./Pages/Calendar/Calendar";
+import LandingPage from "./Pages/LandingPage/LandingPage";
+import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
 
 function App() {
   return (
@@ -30,8 +32,14 @@ function App() {
         <Route path="/calendar">
           <Calendar />
         </Route>
-        <Route exact path="/">
+        <Route path="/social-auth-success">
+          <SocialAuthRedirect />
+        </Route>
+        <Route path="/home">
           <HomePage />
+        </Route>
+        <Route exact path="/">
+          <LandingPage />
         </Route>
         {/* <Route path="/SignUpPage">
               <SignUpPage />

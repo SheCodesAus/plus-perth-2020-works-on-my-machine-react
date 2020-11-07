@@ -1,0 +1,26 @@
+.img-container {
+  width: 40%;
+  margin: 0 auto;
+}
+.landing-img {
+  width: 100%;
+}
+
+.signin-ctn {
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+}
+
+.gbtn {
+  background: transparent;
+  border: none !important;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.gsignin {
+  width: calc(10vw + 20px);
+  height: 100%;
+}
