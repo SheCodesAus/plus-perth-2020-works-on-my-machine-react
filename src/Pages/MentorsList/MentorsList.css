@@ -28,4 +28,5 @@
 
 .all-mentor {
   display: flex;
+  flex-direction: column;
 }

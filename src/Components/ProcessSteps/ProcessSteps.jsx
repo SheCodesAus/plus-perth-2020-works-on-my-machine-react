@@ -10,9 +10,6 @@ function Steps(props) {
         <button className="button" onClick={() => completeTodo(index)}>
           Complete
         </button>
-        <button className="button" onClick={() => removeTodo(index)}>
-          Remove
-        </button>
       </div>
     </div>
   );

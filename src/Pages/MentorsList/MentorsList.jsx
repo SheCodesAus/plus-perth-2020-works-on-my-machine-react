@@ -5,27 +5,9 @@ import { Link } from "react-router-dom";
 import MentorProfile from "../MentorProfile/MentorProfile";
 import "./MentorsList.css";
 import MentorProfileCard from "../../Components/MentorProfileCard/MentorProfileCard";
+import ImportCsv from "../../Components/ImportCSV/ImportCSV";
 
 function MentorList() {
-  // //variables
-  // const [mentorList, setMentorList] = useState([]);
-
-  // let query = useQuery();
-
-  // const q = query.get("q");
-
-  // //methods
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_URL}mentorlist/${q ? `?q=${q}` : ""}`)
-  //     .then((results) => {
-  //       return results.json();
-  //     })
-  //     .then((data) => {
-  //       setMentorList(data);
-  //     });
-  // }, [q]);
-
-  console.log(mentorList);
   return (
     <div>
       <div className="AddMentorButton">
@@ -34,6 +16,9 @@ function MentorList() {
           value="&#123; Add a mentor &#125;"
           type="Submit"
         />
+      </div>
+      <div>
+        <ImportCsv />
       </div>
       <div className="all-mentor">
         <h1 className="header-list"> Mentor list </h1>
@@ -45,13 +30,3 @@ function MentorList() {
   );
 }
 export default MentorList;
-
-{
-  /* <div>
-  {projectList.map((projectData, key) => {
-    return <ProjectCard key={key} projectData={projectData} />;
-  })}
-</div>
-<Footer />
-</div> */
-}
