@@ -39,7 +39,7 @@
 }
 
 .event-modal {
-  opacity: 1;
+  background-color: white;
   text-align: center;
   border: 1px solid #79479c;
   z-index: 1;
