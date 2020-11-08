@@ -1,31 +1,34 @@
 import React, { useState, useEffect } from "react";
 import Button from "../../Components/Button/Button";
-import { mentorList } from "../../data";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import MentorProfile from "../MentorProfile/MentorProfile";
 import "./MentorsList.css";
 import MentorProfileCard from "../../Components/MentorProfileCard/MentorProfileCard";
+import ImportCsv from "../../Components/ImportCSV/ImportCSV";
+import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 
 function MentorList() {
-  // //variables
-  // const [mentorList, setMentorList] = useState([]);
+  const token = window.localStorage.getItem("token");
+  const [mentorData, setMentorData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
 
-  // let query = useQuery();
+  useEffect(() => {
+    if (token != null) {
+      fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_profile`)
+        .then((results) => {
+          console.log("------AS", results);
+          return results.json();
+        })
+        .then((data) => {
+          setMentorData(data);
+          setLoading(false);
+        });
+    }
+  }, [token]);
 
-  // const q = query.get("q");
+  if (loading) return <LoadingSpinner />;
 
-  // //methods
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_API_URL}mentorlist/${q ? `?q=${q}` : ""}`)
-  //     .then((results) => {
-  //       return results.json();
-  //     })
-  //     .then((data) => {
-  //       setMentorList(data);
-  //     });
-  // }, [q]);
-
-  console.log(mentorList);
   return (
     <div>
       <div className="AddMentorButton">
@@ -35,9 +38,12 @@ function MentorList() {
           type="Submit"
         />
       </div>
+      <div>
+        <ImportCsv />
+      </div>
       <div className="all-mentor">
         <h1 className="header-list"> Mentor list </h1>
-        {mentorList.map((mentor, key) => {
+        {mentorData.map((mentor, key) => {
           return <MentorProfileCard key={key} mentorData={mentor} />;
         })}
       </div>
@@ -45,13 +51,3 @@ function MentorList() {
   );
 }
 export default MentorList;
-
-{
-  /* <div>
-  {projectList.map((projectData, key) => {
-    return <ProjectCard key={key} projectData={projectData} />;
-  })}
-</div>
-<Footer />
-</div> */
-}

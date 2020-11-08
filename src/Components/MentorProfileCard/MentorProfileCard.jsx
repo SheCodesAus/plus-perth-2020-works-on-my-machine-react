@@ -5,7 +5,6 @@ import "./MentorProfileCard.css";
 function MentorProfileCard(props) {
   //variables
   const { mentorData } = props;
-  console.log(mentorData);
 
   // template
   return (

@@ -38,7 +38,7 @@ function Nav(props) {
       </div>
       <div className="nav">
         <div className="Menu1">
-          <Link to="/">Home</Link>
+          <Link to="/home">Home</Link>
         </div>
         <div className="Menu1">
           <Link to="/calendar"> Calendar</Link>
