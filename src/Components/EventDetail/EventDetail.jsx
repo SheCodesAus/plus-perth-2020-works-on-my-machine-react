@@ -1,17 +1,29 @@
 import React from "react";
 import { convertDateTime } from "../../Helpers/ConvertDateTime";
+import "./EventDetail.css";
 
 function EventDetail(eventDetail) {
   const event = eventDetail.event;
-  console.log(event);
-  console.log(event.attendance_set);
   const start = convertDateTime(event.event_start);
   const end = convertDateTime(event.event_end);
+
+  const attendingStatus = (status) => {
+    if (status === "accepted") {
+      return "attending";
+    } else if (status === "declined") {
+      return "declined";
+    } else {
+      return "no-response";
+    }
+  };
+
   return (
-    <div>
+    <div className="event-detail">
+      <div className="tags">
+        <p className="purple-tag">{event.event_type}</p>
+        <p className="orange-tag">{event.event_city}</p>
+      </div>
       <h2>{event.event_name}</h2>
-      <p>{event.event_city}</p>
-      <p>{event.event_type}</p>
       <p>
         {start} to {end}
       </p>
@@ -20,8 +32,8 @@ function EventDetail(eventDetail) {
         console.log(mentor.mentor);
         return (
           <div>
-            <p>
-              {mentor.mentor.mentor_name}, status: {mentor.status}
+            <p className={attendingStatus(mentor.status)}>
+              {mentor.mentor.mentor_name}
             </p>
           </div>
         );

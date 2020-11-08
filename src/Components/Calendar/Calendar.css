@@ -34,8 +34,13 @@
   background-color: #79479c;
 }
 
+.rbc-month-row {
+  z-index: 0;
+}
+
 .event-modal {
   opacity: 1;
   text-align: center;
   border: 1px solid #79479c;
+  z-index: 1;
 }

@@ -19,7 +19,7 @@ function MyCalendar() {
       creator: 2,
       event_city: "Perth",
       event_name: "Event 3",
-      event_type: null,
+      event_type: "Plus",
       event_start: "2020-11-10T11:30:00+08:00",
       event_end: "2020-11-10T12:30:00+08:00",
       event_location: "45 St Georges Terrace, Perth WA 6000, Australia",
@@ -65,7 +65,7 @@ function MyCalendar() {
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      transform: "translate(50%, 100%)",
+      transform: "translate(50%, 50%)",
     },
   };
 
