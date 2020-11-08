@@ -42,7 +42,7 @@ function ImportCsv() {
     e.preventDefault();
     if (mentorData.length > 0) {
       postData().then((response) => {
-        console.log("Push?");
+        console.log(response);
         history.push("/mentorlist");
       });
     }
