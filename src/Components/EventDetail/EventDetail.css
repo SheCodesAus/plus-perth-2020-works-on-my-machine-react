@@ -32,3 +32,16 @@
 .status div {
   margin: 1vw;
 }
+
+.profile-link {
+  color: #faa524;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #79479c;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  color: #79479c;
+  border-bottom: 1px solid #faa524;
+  text-decoration: none;
+}

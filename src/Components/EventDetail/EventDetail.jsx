@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { convertDateTime } from "../../Helpers/ConvertDateTime";
 import "./EventDetail.css";
 
@@ -11,12 +12,13 @@ function EventDetail(eventDetail) {
   const declined = [];
 
   event.attendance_set.map((mentor, key) => {
+    console.log(mentor);
     if (mentor.status === "accepted") {
-      attending.push(mentor.mentor.mentor_name);
+      attending.push(mentor.mentor);
     } else if (mentor.status === "declined") {
-      declined.push(mentor.mentor.mentor_name);
+      declined.push(mentor.mentor);
     } else {
-      no_response.push(mentor.mentor.mentor_name);
+      no_response.push(mentor.mentor);
     }
   });
 
@@ -46,7 +48,9 @@ function EventDetail(eventDetail) {
           <div className="attending">
             <h3>Attending</h3>
             {attending.map((mentor, key) => (
-              <p>{mentor}</p>
+              <Link className="profile-link" to={`/mentorprofile/${mentor.id}`}>
+                {mentor.mentor_name}
+              </Link>
             ))}
           </div>
         ) : (
@@ -56,7 +60,9 @@ function EventDetail(eventDetail) {
           <div className="no-response">
             <h3>Not Responded</h3>
             {no_response.map((mentor, key) => (
-              <p>{mentor}</p>
+              <Link className="profile-link" to={`/mentorprofile/${mentor.id}`}>
+                {mentor.mentor_name}
+              </Link>
             ))}
           </div>
         ) : (
@@ -66,7 +72,9 @@ function EventDetail(eventDetail) {
           <div className="declined">
             <h3>Declined</h3>
             {declined.map((mentor, key) => (
-              <p>{mentor}</p>
+              <Link className="profile-link" to={`/mentorprofile/${mentor.id}`}>
+                {mentor.mentor_name}
+              </Link>
             ))}
           </div>
         ) : (
