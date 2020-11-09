@@ -43,7 +43,7 @@ function ImportCsv() {
     if (mentorData.length > 0) {
       postData().then((response) => {
         console.log(response);
-        history.push("/mentorlist");
+        window.location.reload();
       });
     }
   };

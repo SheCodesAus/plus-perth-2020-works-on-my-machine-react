@@ -57,7 +57,7 @@ function CreateEvent({ eventDateTime }) {
     e.preventDefault();
     postData().then((response) => {
       console.log(response);
-      // history.push("/login")
+      window.location.reload();
     });
   };
 
