@@ -22,23 +22,13 @@ function EventDetail(eventDetail) {
     }
   });
 
-  const attendingStatus = (status) => {
-    if (status === "accepted") {
-      return "attending";
-    } else if (status === "declined") {
-      return "declined";
-    } else {
-      return "no-response";
-    }
-  };
-
   return (
     <div className="event-detail">
       <div className="tags">
         <p className="purple-tag">{event.event_type}</p>
         <p className="orange-tag">{event.event_city}</p>
       </div>
-      <h2>{event.event_name}</h2>
+      <h2 className="event-title">{event.event_name}</h2>
       <p>
         {start} to {end}
       </p>
