@@ -1,0 +1,25 @@
+.complete-btn-container {
+}
+
+form .complete-btn {
+  /* width: calc(2vw + 5px); */
+
+  width: 3vw;
+  padding: 0;
+  text-align: center;
+  font-size: 1.5vw;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgb(241, 241, 243), rgb(229, 229, 234));
+  color: #79479c;
+  box-shadow: rgba(106, 108, 124, 0.5) 4px 4px 6px -2px,
+    white -8px -8px 12px -2px;
+}
+
+form .complete-btn:hover {
+  background: linear-gradient(90deg, rgb(238, 238, 241), rgb(226, 226, 232));
+  color: #faa524;
+  box-shadow: rgba(106, 108, 124, 0.5) 5px 5px 7.5px -1.25px,
+    white -5px -5px 7.5px -1.25px;
+}
