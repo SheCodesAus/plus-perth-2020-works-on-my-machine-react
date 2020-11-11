@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Steps from "../ProcessSteps/ProcessSteps";
 import { useHistory, useParams } from "react-router-dom";
+import moment from "moment";
 
 import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 import "./ProcessStatus.css";
@@ -8,17 +9,8 @@ import CheckStatus from "../CheckStatus/CheckStatus";
 
 function ProcessStatus() {
   // variables
+  let index = undefined;
   const [mentorProcess, setMentorProcess] = useState([]);
-  // const [mentorProcess, setMentorProcess] = useState([
-  //   {step: "Interview", isCompleted: false, dateCompleted: null},
-  //   {step: "Offered Position", isCompleted: false, dateCompleted: null},
-  //   {step: "Send Contract", isCompleted: false, dateCompleted: null},
-  //   {step: "Contract Signed and returned", isCompleted: false, dateCompleted: null},
-  //   {step: "Calendar Invite Sent", isCompleted: false, dateCompleted: null},
-  //   {step: "Onboarding Complete", isCompleted: false, dateCompleted: null},
-  //   {step: "Feedback Requested", isCompleted: false, dateCompleted: null},
-  //   {step: "Offboarding Complete", isCompleted: false, dateCompleted: null},
-  // ]);
 
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
@@ -38,16 +30,34 @@ function ProcessStatus() {
     }
   }, [token]);
 
+  const putData = async () => {
+    if (token != null) {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}mentors/process/${id}/`,
+        {
+          method: "put",
+          headers: {
+            "Content-Type": "application/json",
+            // Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify(mentorProcess),
+        }
+      );
+      return response.json();
+    }
+  };
+
   if (loading) return <LoadingSpinner />;
 
-  const markComplete = (step, date) => {
-    for (let i = 0; i < mentorProcess.length; i++) {
-      if (mentorProcess.step === step) {
-        return i;
-      }
-    }
-    console.log(step, date);
-    console.log("complete");
+  const markComplete = (stepKey) => {
+    const completedStep = `${stepKey}_completed`;
+    const date = moment().toDate();
+    mentorProcess[stepKey.toString()] = true;
+    mentorProcess[completedStep.toString()] = date.toISOString();
+    putData().then((response) => {
+      console.log(response);
+      window.location.reload();
+    });
   };
 
   // template
@@ -59,44 +69,59 @@ function ProcessStatus() {
           <ul className="progressbar">
             <CheckStatus
               step={mentorProcess.interview}
+              stepKey="interview"
               stepName="Interview"
               date={mentorProcess.interview_completed}
+              markComplete={markComplete}
             />
             <CheckStatus
               step={mentorProcess.offer_position}
+              stepKey="offer_position"
               stepName="Offered Position"
               date={mentorProcess.offer_position_completed}
+              markComplete={markComplete}
             />
             <CheckStatus
               step={mentorProcess.send_contract}
+              stepKey="send_contract"
               stepName="Contract Sent"
               date={mentorProcess.send_contract_completed}
+              markComplete={markComplete}
             />
             <CheckStatus
               step={mentorProcess.signed_contract}
+              stepKey="signed_contract"
               stepName="Signed Contract Returned"
               date={mentorProcess.signed_contract_completed}
               markComplete={markComplete}
             />
             <CheckStatus
               step={mentorProcess.calendar_invites}
+              stepKey="calendar_invites"
               stepName="Calendar Invite Sent"
               date={mentorProcess.calendar_invites_completed}
+              markComplete={markComplete}
             />
             <CheckStatus
               step={mentorProcess.onboarding}
+              stepKey="onboarding"
               stepName="Onboarding Complete"
               date={mentorProcess.onboarding_completed}
+              markComplete={markComplete}
             />
             <CheckStatus
               step={mentorProcess.feedback}
+              stepKey="feedback"
               stepName="Feedback Requested"
               date={mentorProcess.feedback}
+              markComplete={markComplete}
             />
             <CheckStatus
               step={mentorProcess.offboarding}
+              stepKey="offboarding"
               stepName="Offboarding Complete"
               date={mentorProcess.offboarding}
+              markComplete={markComplete}
             />
           </ul>
         </div>

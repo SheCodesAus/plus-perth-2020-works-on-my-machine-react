@@ -62,6 +62,10 @@
   background-color: #55b776;
 }
 
+.step-detail p {
+  height: 2vw;
+}
+
 /* .progressbar li.incomplete {
   color: grey;
 }

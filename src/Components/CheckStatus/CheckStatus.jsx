@@ -3,7 +3,7 @@ import { convertDate } from "../../Helpers/ConvertDateTime";
 import CompleteButton from "../CompleteButton/CompleteButton";
 import "./CheckStatus.css";
 
-function CheckStatus({ step, stepName, date, markComplete }) {
+function CheckStatus({ step, stepKey, stepName, date, markComplete }) {
   const dateCompleted = convertDate(date);
   return (
     <>
@@ -18,11 +18,7 @@ function CheckStatus({ step, stepName, date, markComplete }) {
         <li className="incomplete">
           <div className="step-detail">
             <p>{stepName}:</p>
-            <CompleteButton
-              markComplete={markComplete}
-              step={step}
-              date={date}
-            />
+            <CompleteButton markComplete={markComplete} stepKey={stepKey} />
           </div>
         </li>
       )}
