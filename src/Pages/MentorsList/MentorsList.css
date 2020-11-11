@@ -1,13 +1,16 @@
 .AddMentorButton {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  font-size: medium;
 }
 
 .btn {
   display: inline-block;
   border: none;
   text-decoration: none;
-  font-size: 2vw;
+  font-size: 1rem;
   font-weight: bold;
   color: #faa524;
   text-align: center;
