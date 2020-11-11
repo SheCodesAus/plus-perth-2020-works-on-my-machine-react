@@ -1,0 +1,30 @@
+.homeButton {
+  color: white;
+  background-color: #79479c;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+  margin-right: 1vw;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.event-title {
+  font-size: medium;
+  display: flex;
+}
+
+.ErrorPageWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.pic1 {
+  display: flex;
+  padding: 1vw;
+  width: 50%;
+  height: 50%;
+}

@@ -12,6 +12,7 @@ import EventsPage from "./Pages/EventsPage/EventsPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import EventsList from "./Pages/Events/EventsList";
 import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
+import Error404 from "../src/Components/Error404/Error404"
 
 function App() {
   return (
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route exact path="/">
           <LandingPage />
+        </Route>
+        <Route>
+          <Route path="*" exact={true} component={Error404} />
         </Route>
         {/* <Route path="/SignUpPage">
               <SignUpPage />
