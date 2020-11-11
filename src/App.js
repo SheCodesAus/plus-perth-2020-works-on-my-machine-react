@@ -8,7 +8,7 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import MentorList from "./Pages/MentorsList/MentorsList";
 import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorProfile from "./Pages/MentorProfile/MentorProfile";
-import Calendar from "./Pages/Calendar/Calendar";
+import EventsPage from "./Pages/EventsPage/EventsPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import EventsList from "./Pages/Events/EventsPage";
 import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
@@ -32,7 +32,7 @@ function App() {
           <MentorForm />
         </Route>
         <Route path="/calendar">
-          <Calendar />
+          <EventsPage />
         </Route>
         <Route path="/social-auth-success">
           <SocialAuthRedirect />

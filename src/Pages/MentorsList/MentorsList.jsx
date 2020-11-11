@@ -5,21 +5,29 @@ import MentorProfile from "../MentorProfile/MentorProfile";
 import "./MentorsList.css";
 import MentorProfileCard from "../../Components/MentorProfileCard/MentorProfileCard";
 import ImportCsv from "../../Components/ImportCSV/ImportCSV";
+import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 
 function MentorList() {
+  const token = window.localStorage.getItem("token");
   const [mentorData, setMentorData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_profile`)
-      .then((results) => {
-        console.log("------AS", results);
-        return results.json();
-      })
-      .then((data) => {
-        setMentorData(data);
-      });
-  }, []);
+    if (token != null) {
+      fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_profile`)
+        .then((results) => {
+          console.log("------AS", results);
+          return results.json();
+        })
+        .then((data) => {
+          setMentorData(data);
+          setLoading(false);
+        });
+    }
+  }, [token]);
+
+  if (loading) return <LoadingSpinner />;
 
   return (
     <div>

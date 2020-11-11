@@ -1,0 +1,32 @@
+.form-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1vw;
+  /* width: 60vw; */
+  color: #faa524;
+  font-weight: bold;
+  text-align: left;
+}
+
+.form-input {
+  width: 70%;
+  padding: 0.5vw;
+  margin-top: 0.5vw;
+  border: 2px solid #79479c;
+  font-size: 1.5vw;
+  outline-style: none;
+  text-align: center;
+}
+
+.form-input:focus {
+  outline-style: none;
+  /* border: 0.1em solid black; */
+}
+
+.form-input:-webkit-autofill,
+.form-input:-webkit-autofill:hover,
+.form-input:-webkit-autofill:focus,
+.form-input:-webkit-autofill:selected {
+  background-color: #f9f9f9;
+}

@@ -1,0 +1,58 @@
+.event-title {
+  border: #79479c solid 10px;
+  background: #79479c;
+  color: #faa524;
+  display: flex;
+  justify-content: center;
+  border-radius: 3px 3px 3px 3px;
+  width: 90%;
+  margin: 1vw auto;
+}
+
+.event-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tags {
+  display: flex;
+  justify-content: centre;
+}
+.purple-tag {
+  color: white;
+  background-color: #79479c;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+  margin-right: 1vw;
+}
+
+.orange-tag {
+  color: white;
+  background-color: #faa524;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+}
+
+.status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status div {
+  margin: 1vw;
+}
+
+.profile-link {
+  color: #faa524;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #79479c;
+  text-decoration: none;
+}
+
+.profile-link:hover {
+  color: #79479c;
+  border-bottom: 1px solid #faa524;
+  text-decoration: none;
+}

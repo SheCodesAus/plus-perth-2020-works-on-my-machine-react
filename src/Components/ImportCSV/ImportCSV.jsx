@@ -1,48 +1,60 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDom from "react-dom";
 import Button from "../Button/Button";
 import { CSVReader } from "react-papaparse";
 
 import "./ImportCSV.css";
+import { useHistory } from "react-router";
 
 function ImportCsv() {
-  const [mentorData, setMentorData] = useState({});
+  const history = useHistory();
+  const token = window.localStorage.getItem("token");
+  var mentorData = [];
 
-  const handleOnDrop = (data) => {
-    setMentorData(data);
+  const csvConfig = {
+    header: true,
   };
 
-  useEffect(() => {
-    return () => console.log("--------->", mentorData);
-  });
+  const handleOnDrop = (data) => {
+    console.log("HandleDrop");
+    data.forEach((mentor) => {
+      mentorData.push(mentor.data);
+    });
+    console.log("Csv data", mentorData);
+  };
+
+  const postData = async () => {
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}mentors/mentor_file_upload/`,
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          // Authorization: `Token ${token}`,
+        },
+        body: JSON.stringify(mentorData),
+      }
+    );
+    return response;
+  };
+
   const SendMentorData = (e) => {
     e.preventDefault();
-    console.log(mentorData);
-
-    // fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_file_upload/`, {
-    //   mode: "no-cors",
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "multipart/form-data",
-    //     Accept: "application/json",
-    //     type: "mentorData",
-    //   },
-    //   body: mentorData,
-    // })
-    //   .then((results) => {
-    //     return results.json();
-    //   })
-    //   .then((data) => {
-    //     setMentorData(data);
-    //   });
+    if (mentorData.length > 0) {
+      postData().then((response) => {
+        console.log(response);
+        window.location.reload();
+      });
+    }
   };
 
   return (
     <div>
       <form>
-        <CSVReader onDrop={handleOnDrop}>
+        <CSVReader onDrop={handleOnDrop} config={csvConfig}>
           <span> Drop CSV file here </span>
         </CSVReader>
+
         <Button type="submit" onClick={SendMentorData} value="Submit" />
       </form>
     </div>
