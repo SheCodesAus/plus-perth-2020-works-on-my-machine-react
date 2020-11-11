@@ -2,7 +2,7 @@ import React from "react";
 import "./ProcessSteps.css";
 
 function Steps(props) {
-  const { todo, index, completeTodo, removeTodo } = props;
+  const { todo, index, completeTodo } = props;
   return (
     <div className={`todo ${todo.isCompleted ? "complete" : ""}`}>
       {todo.text}
