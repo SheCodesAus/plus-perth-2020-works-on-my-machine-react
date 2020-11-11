@@ -41,6 +41,11 @@ function ProcessStatus() {
   if (loading) return <LoadingSpinner />;
 
   const markComplete = (step, date) => {
+    for (let i = 0; i < mentorProcess.length; i++) {
+      if (mentorProcess.step === step) {
+        return i;
+      }
+    }
     console.log(step, date);
     console.log("complete");
   };
