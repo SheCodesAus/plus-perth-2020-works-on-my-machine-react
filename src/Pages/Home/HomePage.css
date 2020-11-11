@@ -1,0 +1,17 @@
+.EventsHomepage {
+  display: grid;
+  flex-direction: row;
+  width: 100%;
+  grid-auto-flow: column;
+  grid-gap: 1vw;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+}
+
+.EventsHomepageLayout {
+  padding: 1vw;
+  margin: 1vw;
+  justify-content: space-around;
+  box-shadow: 0px 0px 5px gray;
+  border-radius: 5px;
+}
