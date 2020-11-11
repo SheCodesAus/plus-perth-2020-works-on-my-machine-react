@@ -11,9 +11,13 @@ function MentorProfileCard(props) {
     <div className="mentor-card">
       <Link to={`/mentorprofile/${mentorData.id}`}>
         <h3 className="card-title">{mentorData.mentor_name}</h3>
+
         <div className="card-details">
           <p>Email {mentorData.mentor_email}</p>
           <p>Phone {mentorData.phone_number}</p>
+          <br></br>
+          <p className="SkillButton">{mentorData.skills}</p>
+          <p className="IndustryStyling">{mentorData.mentor_type} </p>
         </div>
       </Link>
     </div>

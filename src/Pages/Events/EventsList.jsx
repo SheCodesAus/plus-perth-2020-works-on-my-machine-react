@@ -5,7 +5,6 @@ import EventsCard from "../../Components/EventsCard/EventsCard";
 
 function EventsList() {
   const [eventsData, setEventsData] = useState({});
-  const { id } = useParams();
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_URL}events/`)
@@ -21,9 +20,10 @@ function EventsList() {
     <div>
       <div>
         <h1> Events list </h1>
-        {eventsData.map((events, key) => {
-          return <EventsCard key={key} eventsData={events} />;
-        })}
+        {eventsData &&
+          eventsData.map((events, key) => {
+            return <EventsCard key={key} eventsData={events} />;
+          })}
       </div>
     </div>
   );

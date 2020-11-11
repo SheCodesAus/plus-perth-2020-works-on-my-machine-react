@@ -5,10 +5,13 @@ import EventsList from "../Events/EventsList";
 import EventsCard from "../../Components/EventsCard/EventsCard";
 import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 import MentorProfileCard from "../../Components/MentorProfileCard/MentorProfileCard";
+import EventDetail from "../../Components/EventDetail/EventDetail";
+import "./HomePage.css";
 
 function HomePage() {
   const token = window.localStorage.getItem("token");
   const [mentorData, setMentorData] = useState([]);
+  const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
@@ -26,20 +29,41 @@ function HomePage() {
     }
   }, [token]);
 
+  const getEvents = async () => {
+    if (token != null) {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}events/`, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      })
+        .then((results) => {
+          return results.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setEventsData(data);
+        });
+      return response;
+    }
+  };
+  useEffect(() => {
+    getEvents();
+  }, []);
+
   if (loading) return <LoadingSpinner />;
 
   return (
     <div>
-      <div>
-        <h1 className="header-list"> Upcoming Events </h1>
-        {/* {eventsList.map((events, key) => {
-          return <EventsList id={key} eventsData={events} />;
-        })} */}
-      </div>
-      <div className="all-mentor">
-        <h1 className="header-list"> Mentor list </h1>
-        {mentorData.map((mentor, key) => {
-          return <MentorProfileCard key={key} mentorData={mentor} />;
+      <h1 className="header-list"> Upcoming Events </h1>
+      <div className="EventsHomepage">
+        {eventsData.map((events, key) => {
+          return (
+            <div className="EventsHomepageLayout">
+              <EventDetail key={key} event={events} />
+            </div>
+          );
         })}
       </div>
     </div>
