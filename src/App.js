@@ -10,9 +10,8 @@ import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorProfile from "./Pages/MentorProfile/MentorProfile";
 import EventsPage from "./Pages/EventsPage/EventsPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
-import EventsList from "./Pages/Events/EventsPage";
+import EventsList from "./Pages/Events/EventsList";
 import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
-import EventsPage from "./Pages/Events/EventsPage";
 
 function App() {
   return (

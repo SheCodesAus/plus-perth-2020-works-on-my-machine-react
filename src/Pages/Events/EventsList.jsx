@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import "./EventsPage.css";
+import "./EventsList.css";
 import EventsCard from "../../Components/EventsCard/EventsCard";
-import { eventsList } from "../../data";
 
 function EventsList() {
-  const [eventsData, setEventsData] = useState([]);
+  const [eventsData, setEventsData] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
