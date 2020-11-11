@@ -1,5 +1,5 @@
 .mentor-card {
-  width: 50%;
+  /* width: 50%; */
   margin: 15px;
   padding-bottom: 10px;
 }
@@ -28,7 +28,7 @@
 
 .IndustryStyling {
   color: white;
-  background-color: #79479c;
+  background-color: #faa524;
   width: fit-content;
   padding: 0.6vw;
   border-radius: 5px;
