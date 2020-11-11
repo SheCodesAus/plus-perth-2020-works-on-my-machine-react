@@ -33,3 +33,14 @@
 .rbc-event {
   background-color: #79479c;
 }
+
+.rbc-month-row {
+  z-index: 0;
+}
+
+.event-modal {
+  background-color: white;
+  text-align: center;
+  border: 1px solid #79479c;
+  z-index: 1;
+}
