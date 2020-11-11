@@ -28,7 +28,7 @@ const MentorProfileDetails = () => {
 
   return (
     <div>
-      <div className="mentor-card">
+      <div className="mentor-card show-border">
         <h4 className="top_card"> Mentor Profile </h4>
         <div className="card-header">
           <h3 className="card-title">{mentorData.mentor_name}</h3>

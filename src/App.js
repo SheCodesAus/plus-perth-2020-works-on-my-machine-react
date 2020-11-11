@@ -10,6 +10,7 @@ import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorProfile from "./Pages/MentorProfile/MentorProfile";
 import EventsPage from "./Pages/EventsPage/EventsPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import EventsList from "./Pages/Events/EventsList";
 import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
 import Error404 from "../src/Components/Error404/Error404"
 
@@ -35,6 +36,9 @@ function App() {
         </Route>
         <Route path="/social-auth-success">
           <SocialAuthRedirect />
+        </Route>
+        <Route path="/events">
+          <EventsList />
         </Route>
         <Route path="/home">
           <HomePage />

@@ -51,6 +51,7 @@ function CreateEvent({ eventDateTime }) {
       ...newEvent,
       mentor_list: [...newEvent.mentor_list, value],
     }));
+    console.log(newEvent.mentor_list);
   };
 
   const handleSubmit = (e) => {
