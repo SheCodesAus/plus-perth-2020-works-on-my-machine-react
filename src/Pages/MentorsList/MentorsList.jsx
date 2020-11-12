@@ -41,10 +41,14 @@ function MentorList() {
       <div>
         <ImportCsv />
       </div>
+      <h1 className="header-list"> Mentor list </h1>
       <div className="all-mentor">
-        <h1 className="header-list"> Mentor list </h1>
-        {mentorData.map((mentor, key) => {
-          return <MentorProfileCard key={key} mentorData={mentor} />;
+        {mentorData.map((mentor, key, skills) => {
+          return (
+            <div className="all_mentor_card">
+              <MentorProfileCard key={key} mentorData={mentor} />
+            </div>
+          );
         })}
       </div>
     </div>

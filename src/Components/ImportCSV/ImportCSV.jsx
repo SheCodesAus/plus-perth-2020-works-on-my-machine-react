@@ -42,8 +42,8 @@ function ImportCsv() {
     e.preventDefault();
     if (mentorData.length > 0) {
       postData().then((response) => {
-        console.log("Push?");
-        history.push("/mentorlist");
+        console.log(response);
+        window.location.reload();
       });
     }
   };
@@ -54,8 +54,9 @@ function ImportCsv() {
         <CSVReader onDrop={handleOnDrop} config={csvConfig}>
           <span> Drop CSV file here </span>
         </CSVReader>
-
+    <div className="SubmitButton">
         <Button type="submit" onClick={SendMentorData} value="Submit" />
+    </div>
       </form>
     </div>
   );

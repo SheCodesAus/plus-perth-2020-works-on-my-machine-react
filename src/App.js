@@ -8,9 +8,11 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import MentorList from "./Pages/MentorsList/MentorsList";
 import MentorForm from "./Components/MentorForm/MentorForm";
 import MentorProfile from "./Pages/MentorProfile/MentorProfile";
-import Calendar from "./Pages/Calendar/Calendar";
+import EventsPage from "./Pages/EventsPage/EventsPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
+import EventsList from "./Pages/Events/EventsList";
 import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
+import Error404 from "../src/Components/Error404/Error404"
 
 function App() {
   return (
@@ -30,16 +32,22 @@ function App() {
           <MentorForm />
         </Route>
         <Route path="/calendar">
-          <Calendar />
+          <EventsPage />
         </Route>
         <Route path="/social-auth-success">
           <SocialAuthRedirect />
+        </Route>
+        <Route path="/events">
+          <EventsList />
         </Route>
         <Route path="/home">
           <HomePage />
         </Route>
         <Route exact path="/">
           <LandingPage />
+        </Route>
+        <Route>
+          <Route path="*" exact={true} component={Error404} />
         </Route>
         {/* <Route path="/SignUpPage">
               <SignUpPage />

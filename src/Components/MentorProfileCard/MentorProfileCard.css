@@ -1,17 +1,26 @@
 .mentor-card {
-  width: 30%;
-  box-shadow: 0px 0px 5px gray;
-  margin: 5px;
   border-radius: 5px;
+  justify-content: space-around;
+  margin-bottom: 1vw;
 }
-.mentor-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
+
+.show-border {
+  box-shadow: 0px 0px 5px gray;
 }
 
 .card-details {
-  margin: 15px;
+  margin: 1vw 0;
   color: #79479c;
   font-size: 12px;
+}
+
+.card-top {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+
+.card-top .card-title {
+  margin-left: 0;
 }
