@@ -7,11 +7,6 @@
   font-size: calc(10px + 1vw);
 }
 
-.rbc-event.rbc-selected {
-  background-color: #faa524;
-  color: #79479c;
-}
-
 .rbc-btn-group button {
   font-size: calc(8px + 1vw);
   background-color: #79479c;
@@ -25,13 +20,32 @@
 .rbc-toolbar button:active:hover,
 .rbc-toolbar button:active:focus,
 .rbc-toolbar button.rbc-active:hover,
-.rbc-toolbar button.rbc-active:focus {
+.rbc-toolbar button.rbc-active:focus .rbc-active .rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active {
   background-color: #faa524;
   color: #79479c;
 }
 
-.rbc-event {
-  background-color: #79479c;
+.plus {
+  background-color: #ffc771;
+}
+.flash {
+  background-color: #d299ff;
+}
+.workshop {
+  background-color: #fe1490;
+}
+.rbc-event.plus.rbc-selected {
+  background-color: #ffc771;
+  color: black;
+}
+.rbc-event.flash.rbc-selected {
+  background-color: #d299ff;
+  color: black;
+}
+.rbc-event.workshop.rbc-selected {
+  background-color: #fe1490;
+  color: black;
 }
 
 .rbc-month-row {

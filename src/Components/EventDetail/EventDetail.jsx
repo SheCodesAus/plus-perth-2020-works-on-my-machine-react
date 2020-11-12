@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { convertDateTime } from "../../Helpers/ConvertDateTime";
+import EventTypeTag from "../EventTypeTag/EventTypeTag";
 import "./EventDetail.css";
 
 function EventDetail(eventDetail) {
@@ -25,7 +26,8 @@ function EventDetail(eventDetail) {
   return (
     <div className="event-detail">
       <div className="tags">
-        <p className="purple-tag">{event.event_type}</p>
+        {/* <p className="purple-tag">{event.event_type}</p> */}
+        <EventTypeTag eventType={event.event_type} />
         <p className="orange-tag">{event.event_city}</p>
       </div>
       <h2 className="event-title">{event.event_name}</h2>
