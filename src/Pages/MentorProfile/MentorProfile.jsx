@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import ProcessStatus from "../../Components/ProcessStatus/ProcessStatus";
 import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 import "./MentorProfile.css";
+import MentorSkills from "../../Components/MentorSkills/MentorSkills";
 
 const MentorProfileDetails = () => {
   const token = window.localStorage.getItem("token");
@@ -28,25 +29,27 @@ const MentorProfileDetails = () => {
 
   return (
     <div>
-      <div className="mentor-card show-border">
+      <div className="mentor-profile-card show-border">
         <h4 className="top_card"> Mentor Profile </h4>
-        <div className="card-header">
-          <h3 className="card-title">{mentorData.mentor_name}</h3>
-          <p className="IndustryStyling">{mentorData.mentor_type} </p>
-        </div>
-        <div className="card-details">
-          <p className="MentorDetailStyle">Email: {mentorData.mentor_email}</p>
-          <p className="MentorDetailStyle">Phone: {mentorData.phone_number}</p>
-          {/* <p className="bio">Bio: {mentorData.Bio}</p> */}
-          <p className="MentorDetailStyle">Location: {mentorData.location}</p>
-          <p className="MentorDetailStyle">
-            One day workshop: {mentorData.one_day_workshop}
-          </p>
-          <p className="card-title">Skills</p>
-          <div className="SkillStyle">
-            {/* {mentorData.skills.map((skill) => ( */}
-            <p className="SkillButton">{mentorData.skills}</p>
-            {/* ))} */}
+        <div className="contents">
+          <div className="card-header">
+            <h3 className="card-title">{mentorData.mentor_name}</h3>
+            <p className="IndustryStyling">{mentorData.mentor_type} </p>
+          </div>
+          <div className="card-details">
+            <p className="MentorDetailStyle">
+              Email: {mentorData.mentor_email}
+            </p>
+            <p className="MentorDetailStyle">
+              Phone: {mentorData.phone_number}
+            </p>
+            {/* <p className="bio">Bio: {mentorData.Bio}</p> */}
+            <p className="MentorDetailStyle">Location: {mentorData.location}</p>
+            <p className="MentorDetailStyle">
+              One day workshop: {mentorData.one_day_workshop}
+            </p>
+            <p className="card-title">Skills</p>
+            <MentorSkills mentorSkills={mentorData.skills} />
           </div>
         </div>
       </div>

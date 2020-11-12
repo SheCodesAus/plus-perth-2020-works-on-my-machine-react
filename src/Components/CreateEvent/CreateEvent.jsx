@@ -11,13 +11,12 @@ function CreateEvent({ eventDateTime }) {
   const end = DateTimeInput(eventDateTime.end);
   // const start = eventDateTime.start;
   // const end = eventDateTime.end;
-  console.log(start);
   const [newEvent, setNewEvent] = useState({
     event_start: start,
     event_end: end,
     event_name: "",
     event_location: "",
-    mentor_list: [],
+    mentor_list: "",
   });
 
   const postData = async () => {
@@ -45,17 +44,16 @@ function CreateEvent({ eventDateTime }) {
     }));
   };
 
-  const addMentor = (e) => {
-    const { value } = e.target;
-    setNewEvent((newEvent) => ({
-      ...newEvent,
-      mentor_list: [...newEvent.mentor_list, value],
-    }));
-    console.log(newEvent.mentor_list);
+  const mentorList = () => {
+    let list = newEvent.mentor_list.replaceAll(" ", "").split(",");
+
+    newEvent.mentor_list = list;
+    console.log(list);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    mentorList();
     postData().then((response) => {
       console.log(response);
       window.location.reload();
@@ -102,8 +100,8 @@ function CreateEvent({ eventDateTime }) {
         type="text"
         placeholder="Mentors"
         // value={newEvent.mentor_list}
-        initState={[]}
-        onChange={addMentor}
+        // initState={[]}
+        onChange={handleChange}
       />
       <TextInput
         id="event_location"

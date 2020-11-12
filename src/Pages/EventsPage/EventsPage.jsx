@@ -50,7 +50,7 @@ function EventsPage() {
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
-      transform: "translate(50%, 15%)",
+      transform: "translate(50%, 20%)",
     },
   };
 

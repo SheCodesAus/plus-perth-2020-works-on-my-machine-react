@@ -1,0 +1,10 @@
+.skills {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.SkillButton {
+  margin: 0.2vw;
+}
