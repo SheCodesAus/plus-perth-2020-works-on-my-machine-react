@@ -39,13 +39,17 @@ function HomePage() {
     <div>
       <h1 className="header-list"> Upcoming Events </h1>
       <div className="EventsHomepage">
-        {eventsData.map((events, key) => {
-          return (
-            <div className="EventsHomepageLayout">
-              <EventDetail key={key} event={events} />
-            </div>
-          );
-        })}
+        {eventsData.length > 0 ? (
+          eventsData.map((events, key) => {
+            return (
+              <div className="EventsHomepageLayout">
+                <EventDetail key={key} event={events} />
+              </div>
+            );
+          })
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );
