@@ -7,10 +7,26 @@
   font-size: calc(10px + 1vw);
 }
 
+.rbc-btn-group {
+  border-radius: 10px;
+  box-shadow: rgba(106, 108, 124, 0.5) 4px 4px 6px -2px,
+    white -8px -8px 12px -2px;
+  background: linear-gradient(90deg, rgb(241, 241, 243), rgb(229, 229, 234));
+}
+
 .rbc-btn-group button {
   font-size: calc(8px + 1vw);
-  background-color: #79479c;
-  color: #faa524;
+  /* background-color: #79479c;
+  color: #faa524; */
+  /* width: 3vw; */
+  padding: 10px;
+  text-align: center;
+  font-size: 1.5vw;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+  /* background: linear-gradient(90deg, rgb(241, 241, 243), rgb(229, 229, 234)); */
+  color: #79479c;
 }
 
 .rbc-btn-group button:hover {
@@ -20,10 +36,13 @@
 .rbc-toolbar button:active:hover,
 .rbc-toolbar button:active:focus,
 .rbc-toolbar button.rbc-active:hover,
-.rbc-toolbar button.rbc-active:focus .rbc-active .rbc-toolbar button:active,
+.rbc-toolbar button.rbc-active:focus,
+.rbc-active .rbc-toolbar button:active,
 .rbc-toolbar button.rbc-active {
   background-color: #faa524;
   color: #79479c;
+  border: none;
+  outline: none;
 }
 
 .plus {

@@ -14,15 +14,26 @@ function MyCalendar({ events, createEvent, viewEvent }) {
     return { className: className };
   };
 
+  const parseStartDate = (event, start, end) => {
+    return new Date(event.event_start);
+  };
+
+  const parseEndDate = (event, start, end) => {
+    return new Date(event.event_end);
+  };
+
+  console.log(typeof events[0].event_start);
+
   return (
     <div className="calendar-component" style={{ height: "500pt" }}>
       <Calendar
         events={events}
         titleAccessor="event_name"
-        startAccessor="event_start"
-        endAccessor="event_end"
+        startAccessor={parseStartDate}
+        endAccessor={parseEndDate}
         defaultDate={moment().toDate()}
         localizer={localizer}
+        defaultView="week"
         views={["month", "week", "day"]}
         selectable={true}
         onSelectSlot={createEvent}
