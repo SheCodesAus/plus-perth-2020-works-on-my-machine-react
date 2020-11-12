@@ -56,7 +56,11 @@
 }
 .progressbar li.completed:before {
   border-color: #55b776;
-  content: "✔";
+  content: "";
+  background: url("../Images/check-mark.svg") no-repeat 0 0;
+  background-size: 60%;
+  background-color: white;
+  background-position: center;
 }
 .progressbar li.completed + li:after {
   background-color: #55b776;

@@ -4,12 +4,19 @@ import "./CompleteButton.css";
 function CompleteButton({ markComplete, stepKey, ...props }) {
   return (
     <form className="complete-btn-container" type="button">
-      <input
+      {/* <input
         className="complete-btn"
-        value="✔"
+        src={require("../Images/check-mark.svg")}
         onClick={() => markComplete(stepKey)}
         {...props}
-      />
+      /> */}
+      <button
+        className="complete-btn"
+        onClick={() => markComplete(stepKey)}
+        {...props}
+      >
+        <img src={require("../Images/check-mark.svg")} alt="checkmark" />
+      </button>
     </form>
   );
 }

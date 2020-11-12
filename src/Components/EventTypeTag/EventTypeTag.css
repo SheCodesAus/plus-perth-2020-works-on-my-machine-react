@@ -1,0 +1,26 @@
+.plus {
+  color: white;
+  background-color: #ffc771;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+  margin-right: 1vw;
+}
+
+.flash {
+  color: white;
+  background-color: #d299ff;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+  margin-right: 1vw;
+}
+
+.workshop {
+  color: white;
+  background-color: #fe1490;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+  margin-right: 1vw;
+}

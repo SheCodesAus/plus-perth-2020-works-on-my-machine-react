@@ -68,7 +68,7 @@ function CreateEvent({ eventDateTime }) {
   };
 
   return (
-    <div>
+    <div className="overflow-container">
       <h2 className="form-title">Create New Event</h2>
       <TextInput
         id="event_name"

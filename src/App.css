@@ -1,3 +1,14 @@
 body {
   padding: 3vw;
 }
+
+button:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+div:focus,
+div:active {
+  border: none !important;
+  outline: none !important;
+}
