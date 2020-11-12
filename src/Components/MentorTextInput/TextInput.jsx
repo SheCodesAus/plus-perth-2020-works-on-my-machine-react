@@ -1,8 +1,7 @@
 import React from "react";
-import ValidationError from "../ValidationError/ValidationError";
 import "./TextInput.css";
 
-function TextInput({ label, type, placeholder, value, error, ...props }) {
+function MentorTextInput({ label, type, placeholder, value, error, ...props }) {
   return (
     <form>
       <label className="form-item">
@@ -17,9 +16,11 @@ function TextInput({ label, type, placeholder, value, error, ...props }) {
           noValidate
         />
       </label>
-      <ValidationError error={error} />
+      <span className="mentor-message">
+        Enter the names of mentors seperated by commas
+      </span>
     </form>
   );
 }
 
-export default TextInput;
+export default MentorTextInput;

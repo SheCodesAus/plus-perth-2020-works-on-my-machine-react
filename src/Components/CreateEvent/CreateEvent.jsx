@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "../Button/Button";
 import TextInput from "../TextInput/TextInput";
-
+import MentorTextInput from "../MentorTextInput/TextInput";
 import { DateTimeInput } from "../../Helpers/ConvertDateTime";
 import "./CreateEvent.css";
 
@@ -9,8 +9,6 @@ function CreateEvent({ eventDateTime }) {
   const token = window.localStorage.getItem("token");
   const start = DateTimeInput(eventDateTime.start);
   const end = DateTimeInput(eventDateTime.end);
-  // const start = eventDateTime.start;
-  // const end = eventDateTime.end;
   const [newEvent, setNewEvent] = useState({
     event_start: start,
     event_end: end,
@@ -18,6 +16,38 @@ function CreateEvent({ eventDateTime }) {
     event_location: "",
     mentor_list: "",
   });
+  const [errorMessages, setErrors] = useState({
+    event_name: "",
+    event_location: "",
+  });
+
+  const validEventName = RegExp("She Codes (Plus|Flash|Workshop)");
+
+  const validEventLocation = RegExp("6\\d{3}|4\\d{3}");
+
+  const validateInput = () => {
+    let errors = { ...errorMessages };
+
+    errors.event_name = validEventName.test(newEvent.event_name)
+      ? ""
+      : 'Event name needs to include "She Codes" and an event type, e.g "She Codes Plus"';
+
+    errors.event_location = validEventLocation.test(newEvent.event_location)
+      ? ""
+      : "Event Location must include a postcode from WA or QLD";
+
+    return errors;
+  };
+
+  // Find an if an instance of an error message exists, and return either true or false
+  const validateForm = () => {
+    const errors = validateInput();
+    const firstValidationError = Object.values(errors).find(
+      (error) => error.length > 0
+    );
+    setErrors(errors);
+    return firstValidationError === undefined;
+  };
 
   const postData = async () => {
     if (token != null) {
@@ -54,10 +84,14 @@ function CreateEvent({ eventDateTime }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     mentorList();
-    postData().then((response) => {
-      console.log(response);
-      window.location.reload();
-    });
+    if (validateForm(errorMessages)) {
+      postData().then((response) => {
+        console.log(response);
+        window.location.reload();
+      });
+    } else {
+      console.log("invalid form");
+    }
   };
 
   const handleKeyPress = (e) => {
@@ -75,7 +109,7 @@ function CreateEvent({ eventDateTime }) {
         label="Event Name"
         type="text"
         placeholder="Event Name"
-        // value={newEvent.event_name}
+        error={errorMessages.event_name}
         onChange={handleChange}
       />
       <TextInput
@@ -83,7 +117,6 @@ function CreateEvent({ eventDateTime }) {
         label="Event Start"
         type="datetime-local"
         placeholder="Event Start"
-        value={newEvent.event_start}
         onChange={handleChange}
       />
       <TextInput
@@ -91,16 +124,13 @@ function CreateEvent({ eventDateTime }) {
         label="Event End"
         type="datetime-local"
         placeholder="Event End"
-        value={newEvent.event_end}
         onChange={handleChange}
       />
-      <TextInput
+      <MentorTextInput
         id="mentor_list"
         label="Mentor List"
         type="text"
         placeholder="Mentors"
-        // value={newEvent.mentor_list}
-        // initState={[]}
         onChange={handleChange}
       />
       <TextInput
@@ -108,7 +138,7 @@ function CreateEvent({ eventDateTime }) {
         label="Event Location"
         type="text"
         placeholder="Event Location"
-        // value={newEvent.event_location}
+        error={errorMessages.event_location}
         onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
