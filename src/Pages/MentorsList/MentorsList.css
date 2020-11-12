@@ -29,15 +29,14 @@
 }
 
 .all-mentor {
-  /* display: flex;
-  flex-direction: column; */
   display: grid;
   flex-direction: row;
   width: 100%;
   grid-auto-flow: column;
   grid-gap: 1vw;
-  grid-template-rows: 30% 30% 30%;
-  grid-template-columns: 50% 50%;
+  grid-template-rows: 30% 30%;
+  grid-template-columns: 33% 33% 33%;
+  height: 90rem;
 }
 
 .all_mentor_card {
