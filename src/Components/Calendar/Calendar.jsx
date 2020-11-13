@@ -37,6 +37,7 @@ function MyCalendar({ events, createEvent, viewEvent }) {
         onSelectSlot={createEvent}
         onSelectEvent={viewEvent}
         eventPropGetter={eventStyleGetter}
+        scrollToTime={moment().set({ h: 9, m: 0 }).toDate()}
       />
     </div>
   );

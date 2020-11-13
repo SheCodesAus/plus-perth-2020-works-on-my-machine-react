@@ -1,0 +1,11 @@
+.delete-btn {
+  background: transparent;
+  border: none !important;
+  font-size: 0;
+  height: 100%;
+  cursor: pointer;
+}
+
+.delete-btn img {
+  width: 2vw;
+}

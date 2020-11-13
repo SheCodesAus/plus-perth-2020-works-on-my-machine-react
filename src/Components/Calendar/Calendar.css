@@ -33,6 +33,10 @@
   border: none;
 }
 
+.rbc-day-slot .rbc-events-container {
+  margin: 0 auto;
+}
+
 .plus {
   background-color: #ffc771;
 }
