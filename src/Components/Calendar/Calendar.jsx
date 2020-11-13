@@ -22,8 +22,6 @@ function MyCalendar({ events, createEvent, viewEvent }) {
     return new Date(event.event_end);
   };
 
-  console.log(typeof events[0].event_start);
-
   return (
     <div className="calendar-component" style={{ height: "500pt" }}>
       <Calendar

@@ -16,8 +16,6 @@ function FullPageLoader() {
   ]);
   const getRandomMessage = () => {
     const index = Math.floor(Math.random() * Math.floor(8));
-    console.log(index);
-    console.log(cheekyMessages[index]);
     return cheekyMessages[index];
   };
 

@@ -9,6 +9,7 @@ function CreateEvent({ eventDateTime }) {
   const token = window.localStorage.getItem("token");
   const start = DateTimeInput(eventDateTime.start);
   const end = DateTimeInput(eventDateTime.end);
+  console.log(start, end);
   const [newEvent, setNewEvent] = useState({
     event_start: start,
     event_end: end,
@@ -118,6 +119,7 @@ function CreateEvent({ eventDateTime }) {
         type="datetime-local"
         placeholder="Event Start"
         onChange={handleChange}
+        value={newEvent.event_start}
       />
       <TextInput
         id="event_end"
@@ -125,6 +127,7 @@ function CreateEvent({ eventDateTime }) {
         type="datetime-local"
         placeholder="Event End"
         onChange={handleChange}
+        value={newEvent.event_end}
       />
       <MentorTextInput
         id="mentor_list"

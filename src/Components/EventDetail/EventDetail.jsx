@@ -13,15 +13,16 @@ function EventDetail(eventDetail) {
   const declined = [];
 
   event.attendance_set.map((mentor, key) => {
-    console.log(mentor);
     if (mentor.status === "accepted") {
-      attending.push(mentor.mentor);
+      return attending.push(mentor.mentor);
     } else if (mentor.status === "declined") {
-      declined.push(mentor.mentor);
+      return declined.push(mentor.mentor);
     } else {
-      no_response.push(mentor.mentor);
+      return no_response.push(mentor.mentor);
     }
   });
+
+  console.log(event.attendance_set);
 
   return (
     <div className="event-detail">
