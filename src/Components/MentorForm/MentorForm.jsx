@@ -75,14 +75,16 @@ function MentorForm() {
         </div>
         <div>
           <label htmlFor="MentorType"> Mentor Type </label>
-          <input
-            type="Dropdown"
-            id="MentorType"
-            placeholder="Select Mentor Type"
-            name="Mentor Type"
-            options={["Industry", "Lead", "Junior"]}
-            // onChange={handleChange}
-          />
+          <select
+          id="MentorType"
+          name="Mentor Type"
+           // onChange={handleChange}
+          >
+            <option default>Select Mentor Type</option>
+            <option value="Industry">Industry</option>
+            <option value="Lead">Lead</option>
+            <option value="Junior">Junior</option>
+          </select>        
         </div>
         <div>
           <label htmlFor="Bio"> Mentor Bio </label>
@@ -96,8 +98,9 @@ function MentorForm() {
         <div>
           <label htmlFor="Skills"> Skills </label>
           <input
-            type="checkbox"
+            type="text"
             id="skills"
+            placeholder="Skills Type"
             // onChange={handleChange}
           />
         </div>
