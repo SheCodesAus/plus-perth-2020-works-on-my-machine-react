@@ -1,0 +1,21 @@
+.confirm-delete-modal {
+  background-color: white;
+  z-index: 2;
+  margin: 10vw auto;
+  width: 30%;
+  text-align: center;
+  box-shadow: rgba(106, 108, 124, 0.5) 1px -1px 12px -1px,
+    white -8px -8px 12px -2px;
+  border-radius: 5px;
+}
+
+.modal-btns {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.modal-btns input {
+  width: 100%;
+}

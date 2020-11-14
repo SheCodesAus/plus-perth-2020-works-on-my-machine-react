@@ -9,7 +9,6 @@ function CreateEvent({ eventDateTime }) {
   const token = window.localStorage.getItem("token");
   const start = DateTimeInput(eventDateTime.start);
   const end = DateTimeInput(eventDateTime.end);
-  console.log(start, end);
   const [newEvent, setNewEvent] = useState({
     event_start: start,
     event_end: end,

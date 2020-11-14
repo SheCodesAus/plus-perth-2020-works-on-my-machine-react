@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { convertDateTime } from "../../Helpers/ConvertDateTime";
 import DeleteButton from "../DeleteButton/DeleteButton";
@@ -23,8 +23,6 @@ function EventDetail(eventDetail) {
       return no_response.push(mentor.mentor);
     }
   });
-
-  console.log(event.attendance_set);
 
   return (
     <div className="event-detail">
