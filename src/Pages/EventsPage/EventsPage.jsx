@@ -96,6 +96,7 @@ function EventsPage() {
         // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         contentLabel="Confirm Delete"
+        shouldFocusAfterRender="true"
       >
         {modalType === "view" ? (
           <EventDetail event={eventDetail} />

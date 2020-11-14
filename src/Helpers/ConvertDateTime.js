@@ -57,6 +57,5 @@ export const DateTimeInput = (isoDateTime) => {
   }
 
   const formattedDate = `${year}-${month}-${day}T${hour}:${minutes}`;
-  console.log(formattedDate);
   return formattedDate;
 };

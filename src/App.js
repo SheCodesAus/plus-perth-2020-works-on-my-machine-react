@@ -12,49 +12,42 @@ import EventsPage from "./Pages/EventsPage/EventsPage";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import EventsList from "./Pages/Events/EventsList";
 import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
-import Error404 from "../src/Components/Error404/Error404"
+import Error404 from "../src/Components/Error404/Error404";
+import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import PublicRoute from "./Components/PublicRoute/PublicRoute";
 
 function App() {
   return (
     <Router>
       <Nav image={require("./Logo/SheCodes-Logo.png")} />
       <Switch>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route path="/mentorprofile/:id">
+        <PrivateRoute path="/mentorprofile/:id">
           <MentorProfile />
-        </Route>
-        <Route path="/mentorlist">
+        </PrivateRoute>
+        <PrivateRoute path="/mentorlist">
           <MentorList />
-        </Route>
-        <Route path="/addmentor">
+        </PrivateRoute>
+        <PrivateRoute path="/addmentor">
           <MentorForm />
-        </Route>
-        <Route path="/calendar">
+        </PrivateRoute>
+        <PrivateRoute path="/calendar">
           <EventsPage />
-        </Route>
+        </PrivateRoute>
+        <PrivateRoute path="/events">
+          <EventsList />
+        </PrivateRoute>
+        <PrivateRoute path="/home">
+          <HomePage />
+        </PrivateRoute>
+        <PublicRoute exact path="/">
+          <LandingPage />
+        </PublicRoute>
         <Route path="/social-auth-success">
           <SocialAuthRedirect />
-        </Route>
-        <Route path="/events">
-          <EventsList />
-        </Route>
-        <Route path="/home">
-          <HomePage />
-        </Route>
-        <Route exact path="/">
-          <LandingPage />
         </Route>
         <Route>
           <Route path="*" exact={true} component={Error404} />
         </Route>
-        {/* <Route path="/SignUpPage">
-              <SignUpPage />
-            </Route> */}
-        {/* <Route path="*">
-              <NotFound />
-            </Route> */}
       </Switch>
     </Router>
   );
