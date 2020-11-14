@@ -53,6 +53,7 @@
   align-items: center;
   margin: 10px;
   font-size: 1vw;
+  margin-bottom: 0;
 }
 
 .contents .skills {
@@ -67,4 +68,43 @@
 
 .MentorDetailStyle {
   margin: 15px;
+}
+
+.Mentor_Events_Card {
+  color: #faa524;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center; */
+  background-color: white;
+  text-align: center;
+  width: 50%;
+  box-shadow: 0px 0px 5px gray;
+  border-radius: 5px;
+  margin: 0px;
+  }
+
+.invitations_container {
+  flex-wrap: wrap;
+
+  }
+
+.EventTitleStyle {
+  margin: 15px;
+  color: #faa524;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.top_card_events {
+  border: #79479c solid 1px;
+  background: #79479c;
+  color: #faa524;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  border-radius: 5px;
+  width: 50%;
+  padding: 3px;
+  margin: 1px;
 }

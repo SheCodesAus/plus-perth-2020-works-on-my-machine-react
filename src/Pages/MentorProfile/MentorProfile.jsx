@@ -5,15 +5,17 @@ import ProcessStatus from "../../Components/ProcessStatus/ProcessStatus";
 import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 import "./MentorProfile.css";
 import MentorSkills from "../../Components/MentorSkills/MentorSkills";
-import EventInvitations from "../../Components/MentorEventsOnProfile/MentorEventsOnProfile";
+import { convertDateTime } from "../../Helpers/ConvertDateTime";
+
 
 const MentorProfileDetails = () => {
   const token = window.localStorage.getItem("token");
   const [mentorData, setMentorData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
-
   const [eventsData, setEventsData] = useState([]);
+  const end = convertDateTime(eventsData.event_end);
+  const start = convertDateTime(eventsData.event_start);
 
   useEffect(() => {
     if (token != null) {
@@ -25,12 +27,8 @@ const MentorProfileDetails = () => {
           setMentorData(data);
           setLoading(false);
         });
-    }
-  }, [token]);
-
-  useEffect(() => {
-    if (token != null) {  
-      fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_profile/${id}`)
+     
+      fetch(`${process.env.REACT_APP_API_URL}invitations/${id}`)
         .then((results) => {
           return results.json();
         })
@@ -38,6 +36,7 @@ const MentorProfileDetails = () => {
           console.log(data);
           setEventsData(data);
           setLoading(false);
+          console.log(eventsData)
         });
     }
   }, [token]);
@@ -73,9 +72,17 @@ const MentorProfileDetails = () => {
         </div>
       </div>
       <ProcessStatus />
-      {/* < EventInvitations props={eventsData}/> */}
-    </div>
-  );
-};
-
+      <h4 className="top_card_events"> Event Invitations </h4>
+      <div className="invitations_container">
+          {eventsData.map((eventData, key) => (
+            <div className="Mentor_Events_Card">
+              <p className="EventTitleStyle">{eventData.event_type}</p>
+              <p className="card-details">{eventData.event_city}</p>
+              <p className="card-details">{start} to {end}</p>
+            </div>
+          ))}; 
+        </div>
+      </div>
+  )
+}
 export default MentorProfileDetails;
