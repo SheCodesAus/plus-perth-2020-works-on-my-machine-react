@@ -4,17 +4,20 @@ import TextInput from "../TextInput/TextInput";
 import MentorTextInput from "../MentorTextInput/TextInput";
 import { DateTimeInput } from "../../Helpers/ConvertDateTime";
 import "./CreateEvent.css";
+import AutocompleteInput from "../AutocompleteInput/AutocompleteInput";
+import MentorIcon from "../MentorIcon/MentorIcon";
 
 function CreateEvent({ eventDateTime }) {
   const token = window.localStorage.getItem("token");
   const start = DateTimeInput(eventDateTime.start);
   const end = DateTimeInput(eventDateTime.end);
+  const [clearSuggestions, setClear] = useState(0);
   const [newEvent, setNewEvent] = useState({
     event_start: start,
     event_end: end,
     event_name: "",
     event_location: "",
-    mentor_list: "",
+    mentor_list: [],
   });
   const [errorMessages, setErrors] = useState({
     event_name: "",
@@ -74,16 +77,30 @@ function CreateEvent({ eventDateTime }) {
     }));
   };
 
-  const mentorList = () => {
-    let list = newEvent.mentor_list.replaceAll(" ", "").split(",");
+  const addMentor = (mentor) => {
+    setNewEvent({
+      ...newEvent,
+      mentor_list: [...newEvent.mentor_list, mentor],
+    });
+    document.getElementById("mentor-input").value = "";
+    setClear((clearCount) => clearCount + 1);
+  };
 
-    newEvent.mentor_list = list;
-    console.log(list);
+  const removeMentor = (mentor) => {
+    console.log("remove mentor");
+    setNewEvent({
+      ...newEvent,
+      mentor_list: newEvent.mentor_list.filter(
+        (removedMentor) => removedMentor !== mentor
+      ),
+    });
+    console.log(mentor);
+    console.log(newEvent.mentor_list);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    mentorList();
+    // mentorList();
     if (validateForm(errorMessages)) {
       postData().then((response) => {
         console.log(response);
@@ -128,13 +145,6 @@ function CreateEvent({ eventDateTime }) {
         onChange={handleChange}
         value={newEvent.event_end}
       />
-      <MentorTextInput
-        id="mentor_list"
-        label="Mentor List"
-        type="text"
-        placeholder="Mentors"
-        onChange={handleChange}
-      />
       <TextInput
         id="event_location"
         label="Event Location"
@@ -144,6 +154,18 @@ function CreateEvent({ eventDateTime }) {
         onChange={handleChange}
         onKeyPress={handleKeyPress}
       />
+
+      <label>Add Mentors</label>
+      <div className="mentor-added">
+        {newEvent.mentor_list.map((mentor, key) => {
+          return <MentorIcon mentor={mentor} removeMentor={removeMentor} />;
+        })}
+      </div>
+      <AutocompleteInput
+        addMentor={addMentor}
+        clearSuggestions={clearSuggestions}
+      />
+
       <Button value="Submit" onClick={handleSubmit} type="submit" />
     </div>
   );

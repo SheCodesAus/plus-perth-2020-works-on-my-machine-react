@@ -25,3 +25,8 @@
   margin-bottom: 1vw;
   height: 3vw;
 }
+
+.mentor-added {
+  display: flex;
+  justify-content: center;
+}
