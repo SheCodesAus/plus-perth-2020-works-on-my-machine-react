@@ -5,12 +5,15 @@ import ProcessStatus from "../../Components/ProcessStatus/ProcessStatus";
 import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
 import "./MentorProfile.css";
 import MentorSkills from "../../Components/MentorSkills/MentorSkills";
+import EventInvitations from "../../Components/MentorEventsOnProfile/MentorEventsOnProfile";
 
 const MentorProfileDetails = () => {
   const token = window.localStorage.getItem("token");
   const [mentorData, setMentorData] = useState([]);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
+
+  const [eventsData, setEventsData] = useState([]);
 
   useEffect(() => {
     if (token != null) {
@@ -25,6 +28,22 @@ const MentorProfileDetails = () => {
     }
   }, [token]);
 
+  useEffect(() => {
+    if (token != null) {  
+      fetch(`${process.env.REACT_APP_API_URL}mentors/mentor_profile/${id}`)
+        .then((results) => {
+          return results.json();
+        })
+        .then((data) => {
+          console.log(data);
+          setEventsData(data);
+          setLoading(false);
+        });
+    }
+  }, [token]);
+
+
+  console.log(id)
   if (loading) return <LoadingSpinner />;
 
   return (
@@ -54,6 +73,7 @@ const MentorProfileDetails = () => {
         </div>
       </div>
       <ProcessStatus />
+      {/* < EventInvitations props={eventsData}/> */}
     </div>
   );
 };
