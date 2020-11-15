@@ -9,6 +9,17 @@ function HomePage() {
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Return true if event is in the past. Won't render event
+  const oldEvent = (eventEnd) => {
+    const today = new Date();
+    const eventDate = new Date(eventEnd);
+    const timeDiff = today - eventDate;
+    if (timeDiff > 0) {
+      return true;
+    }
+    return false;
+  };
+
   const getEvents = async () => {
     if (token != null) {
       const response = await fetch(`${process.env.REACT_APP_API_URL}events/`, {
@@ -22,7 +33,6 @@ function HomePage() {
           return results.json();
         })
         .then((data) => {
-          console.log(data);
           setEventsData(data);
           setLoading(false);
         });
@@ -40,10 +50,12 @@ function HomePage() {
       <h1 className="header-list"> Upcoming Events </h1>
       <div className="EventsHomepage">
         {eventsData.length > 0 ? (
-          eventsData.map((events, key) => {
-            return (
+          eventsData.map((event, key) => {
+            return oldEvent(event.event_end) ? (
+              <></>
+            ) : (
               <div className="EventsHomepageLayout">
-                <EventDetail key={key} event={events} />
+                <EventDetail key={key} event={event} />
               </div>
             );
           })

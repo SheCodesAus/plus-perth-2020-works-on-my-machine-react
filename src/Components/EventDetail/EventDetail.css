@@ -1,3 +1,29 @@
+.event-detail-top {
+  width: 90%;
+  /* margin-left: auto; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+  justify-content: centre;
+}
+
+.city-tag {
+  color: white;
+  background-color: #faa524;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+}
+
+.edit-del-btns {
+  display: flex;
+  /* padding: 1vw; */
+}
+
 .event-title {
   border: #79479c solid 10px;
   background: #79479c;
@@ -14,26 +40,6 @@
   flex-direction: column;
   align-items: center;
 }
-.tags {
-  display: flex;
-  justify-content: centre;
-}
-.purple-tag {
-  color: white;
-  background-color: #79479c;
-  width: fit-content;
-  padding: 0.6vw;
-  border-radius: 5px;
-  margin-right: 1vw;
-}
-
-.orange-tag {
-  color: white;
-  background-color: #faa524;
-  width: fit-content;
-  padding: 0.6vw;
-  border-radius: 5px;
-}
 
 .status {
   display: flex;
@@ -42,6 +48,7 @@
 
 .status div {
   margin: 1vw;
+  text-align: center;
 }
 
 .profile-link {

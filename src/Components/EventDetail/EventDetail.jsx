@@ -1,34 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { convertDateTime } from "../../Helpers/ConvertDateTime";
+import DeleteButton from "../DeleteButton/DeleteButton";
+import EditButton from "../EditButton/EditButton";
 import EventTypeTag from "../EventTypeTag/EventTypeTag";
+import FullPageLoader from "../FullPageLoader/FullPageLoader";
 import "./EventDetail.css";
 
 function EventDetail(eventDetail) {
+  const token = window.localStorage.getItem("token");
   const event = eventDetail.event;
   const start = convertDateTime(event.event_start);
   const end = convertDateTime(event.event_end);
+  const [loading, setLoading] = useState(false);
   const attending = [];
   const no_response = [];
   const declined = [];
 
   event.attendance_set.map((mentor, key) => {
-    console.log(mentor);
     if (mentor.status === "accepted") {
-      attending.push(mentor.mentor);
+      return attending.push(mentor.mentor);
     } else if (mentor.status === "declined") {
-      declined.push(mentor.mentor);
+      return declined.push(mentor.mentor);
     } else {
-      no_response.push(mentor.mentor);
+      return no_response.push(mentor.mentor);
     }
   });
 
+  const handleDeleteClick = () => {
+    setLoading(true);
+    fetch(`${process.env.REACT_APP_API_URL}events/${event.id}/`, {
+      method: "delete",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+    })
+      .then((results) => {
+        return results.text();
+      })
+      .then((data) => {
+        console.log(data);
+        window.location.reload();
+      });
+  };
+
+  if (loading) return <FullPageLoader />;
+
   return (
     <div className="event-detail">
-      <div className="tags">
-        {/* <p className="purple-tag">{event.event_type}</p> */}
-        <EventTypeTag eventType={event.event_type} />
-        <p className="orange-tag">{event.event_city}</p>
+      <div className="event-detail-top">
+        <div className="tags">
+          <EventTypeTag eventType={event.event_type} />
+          <p className="city-tag">{event.event_city}</p>
+        </div>
+        <div className="edit-del-btns">
+          <EditButton event={event} />
+          <DeleteButton handleDelete={handleDeleteClick} />
+        </div>
       </div>
       <h2 className="event-title">{event.event_name}</h2>
       <p>

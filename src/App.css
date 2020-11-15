@@ -12,3 +12,9 @@ div:active {
   border: none !important;
   outline: none !important;
 }
+
+input {
+  font-family: -apple-system, BlinkMacSystemFont, "raleway", "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+}

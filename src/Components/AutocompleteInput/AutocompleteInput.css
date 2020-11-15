@@ -1,0 +1,27 @@
+.autocomplete .form-item {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.auto-list {
+  width: 68%;
+  margin: 0 auto;
+  border: 2px solid #79479c;
+  border-top: none;
+  max-height: 10vh;
+  overflow: scroll;
+}
+
+.auto-list:empty {
+  border: none;
+}
+
+.auto-list div {
+  padding: 3px;
+  cursor: pointer;
+}
+
+.add-mentor.form-input {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}

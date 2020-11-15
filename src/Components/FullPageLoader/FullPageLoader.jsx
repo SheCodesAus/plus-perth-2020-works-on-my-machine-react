@@ -3,7 +3,7 @@ import Spinner from "../Images/shecodes-loading.gif";
 import "./FullPageLoader.css";
 
 function FullPageLoader() {
-  const [cheekyMessages, setMessages] = useState([
+  const cheekyMessages = [
     "You look gorgeous today! 😍",
     "Just getting stuff ready...🐌",
     "Thinking about cupcakes... 🧁",
@@ -13,11 +13,10 @@ function FullPageLoader() {
     "Getting dizzy yet? 🥴 ",
     "So...do you come here often?",
     "Nice weather we're having today...",
-  ]);
+  ];
   const getRandomMessage = () => {
-    const index = Math.floor(Math.random() * Math.floor(8));
-    console.log(index);
-    console.log(cheekyMessages[index]);
+    const length = cheekyMessages.length;
+    const index = Math.floor(Math.random() * Math.floor(length));
     return cheekyMessages[index];
   };
 

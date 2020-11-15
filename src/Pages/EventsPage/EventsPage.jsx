@@ -29,7 +29,6 @@ function EventsPage() {
           return results.json();
         })
         .then((data) => {
-          console.log(data);
           setEvents(data);
           setLoading(false);
         });
@@ -96,6 +95,7 @@ function EventsPage() {
         // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         contentLabel="Confirm Delete"
+        shouldFocusAfterRender="true"
       >
         {modalType === "view" ? (
           <EventDetail event={eventDetail} />
