@@ -1,12 +1,12 @@
 .mentor-process {
-  width: 90%;
+  width: 100%;
   box-shadow: 0px 0px 5px gray;
-  margin: 5px;
+  margin: 5px auto;
   border-radius: 5px;
 }
 
 .container {
-  width: 90%;
+  width: 95%;
   margin: 1vw auto;
   padding: 2vw;
 }
