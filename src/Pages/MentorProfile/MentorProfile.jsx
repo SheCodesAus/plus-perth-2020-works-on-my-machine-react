@@ -14,8 +14,7 @@ const MentorProfileDetails = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const [eventsData, setEventsData] = useState([]);
-  const end = convertDateTime(eventsData.event_end);
-  const start = convertDateTime(eventsData.event_start);
+
 
   useEffect(() => {
     if (token != null) {
@@ -33,10 +32,8 @@ const MentorProfileDetails = () => {
           return results.json();
         })
         .then((data) => {
-          console.log(data);
           setEventsData(data);
           setLoading(false);
-          console.log(eventsData)
         });
     }
   }, [token]);
@@ -77,8 +74,8 @@ const MentorProfileDetails = () => {
           {eventsData.map((eventData, key) => (
             <div className="Mentor_Events_Card">
               <p className="EventTitleStyle">{eventData.event_type}</p>
-              <p className="card-details">{eventData.event_city}</p>
-              <p className="card-details">{start} to {end}</p>
+              <p className="event-location-style">{eventData.event_city}</p>
+              <p className="card-details">{eventData.event_start} to {eventData.event_end}</p>
             </div>
           ))}; 
         </div>
