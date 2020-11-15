@@ -1,0 +1,16 @@
+.edit-event-modal {
+  background-color: white;
+  z-index: 2;
+  margin: 7vw auto;
+  width: 50%;
+  text-align: center;
+  box-shadow: rgba(106, 108, 124, 0.5) 1px -1px 12px -1px,
+    white -8px -8px 12px -2px;
+  border-radius: 5px;
+}
+
+.edit-event-modal .overflow-container {
+  height: 70vh;
+  width: 100%;
+  overflow: scroll;
+}

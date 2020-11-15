@@ -1,6 +1,6 @@
 .event-detail-top {
-  width: 60%;
-  margin-left: auto;
+  width: 90%;
+  /* margin-left: auto; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,7 +21,7 @@
 
 .edit-del-btns {
   display: flex;
-  padding: 1vw;
+  /* padding: 1vw; */
 }
 
 .event-title {

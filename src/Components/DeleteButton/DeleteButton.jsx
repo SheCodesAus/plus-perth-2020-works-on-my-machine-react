@@ -4,14 +4,13 @@ import "./DeleteButton.css";
 import DeleteIcon from "../Images/delete.svg";
 import ConfirmDelete from "../ConfirmDelete/ConfirmDelete";
 
-function DeleteButton() {
+function DeleteButton({ handleDelete }) {
   const [modalIsOpen, setIsOpen] = useState(false);
   // Set to app root
   Modal.setAppElement("#root");
   // Modal methods
   const openModal = () => {
     setIsOpen(true);
-    console.log("delete");
   };
 
   const closeModal = () => {
@@ -26,12 +25,11 @@ function DeleteButton() {
       <Modal
         className="confirm-delete-modal"
         isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         contentLabel="Confirm Delete"
         shouldFocusAfterRender="true"
       >
-        <ConfirmDelete />
+        <ConfirmDelete closeModal={closeModal} handleDelete={handleDelete} />
       </Modal>
     </div>
   );
