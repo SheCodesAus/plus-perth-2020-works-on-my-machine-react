@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./CreateEvent.css";
+import "./EditEvent.css";
 import Button from "../Button/Button";
 import TextInput from "../TextInput/TextInput";
 import { DateTimeInput } from "../../Helpers/ConvertDateTime";
@@ -8,18 +8,14 @@ import AutocompleteInput from "../AutocompleteInput/AutocompleteInput";
 import FullPageLoader from "../FullPageLoader/FullPageLoader";
 import MentorIcon from "../MentorIcon/MentorIcon";
 
-function CreateEvent({ eventDateTime }) {
+function EditEvent({ event }) {
   const token = window.localStorage.getItem("token");
-  const start = DateTimeInput(eventDateTime.start);
-  const end = DateTimeInput(eventDateTime.end);
+  const start = DateTimeInput(event.event_start);
+  const end = DateTimeInput(event.event_end);
   const [loading, setLoading] = useState(false);
   const [clearSuggestions, setClear] = useState(0);
-  const [newEvent, setNewEvent] = useState({
-    event_start: start,
-    event_end: end,
-    event_name: "",
-    event_location: "",
-    mentor_list: [],
+  const [editedEvent, setEvent] = useState({
+    mentor_list: event.mentor_list,
   });
   const [errorMessages, setErrors] = useState({
     event_name: "",
@@ -33,13 +29,18 @@ function CreateEvent({ eventDateTime }) {
   const validateInput = () => {
     let errors = { ...errorMessages };
 
-    errors.event_name = validEventName.test(newEvent.event_name)
-      ? ""
-      : 'Event name needs to include "She Codes" and an event type, e.g "She Codes Plus"';
-
-    errors.event_location = validEventLocation.test(newEvent.event_location)
-      ? ""
-      : "Event Location must include a postcode from WA or QLD";
+    if (editedEvent.event_name) {
+      errors.event_name = validEventName.test(editedEvent.event_name)
+        ? ""
+        : 'Event name needs to include "She Codes" and an event type, e.g "She Codes Plus"';
+    }
+    if (editedEvent.event_location) {
+      errors.event_location = validEventLocation.test(
+        editedEvent.event_location
+      )
+        ? ""
+        : "Event Location must include a postcode from WA or QLD";
+    }
 
     return errors;
   };
@@ -54,58 +55,64 @@ function CreateEvent({ eventDateTime }) {
     return firstValidationError === undefined;
   };
 
-  const postData = async () => {
-    setLoading(true);
-    if (token != null) {
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}create-event/`,
-        {
-          method: "post",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${token}`,
-          },
-          body: JSON.stringify(newEvent),
-        }
-      );
-      return response.json();
-    }
-  };
-
-  const handleChange = (e) => {
-    const { id, value } = e.target;
-    setNewEvent((eventDetails) => ({
-      ...eventDetails,
-      [id]: value,
-    }));
-  };
-
   const addMentor = (mentor) => {
-    setNewEvent({
-      ...newEvent,
-      mentor_list: [...newEvent.mentor_list, mentor],
+    const name = mentor.mentor_name;
+    setEvent({
+      ...editedEvent,
+      mentor_list: [...editedEvent.mentor_list, name],
     });
     document.getElementById("mentor-input").value = "";
     setClear((clearCount) => clearCount + 1);
   };
 
   const removeMentor = (mentor) => {
-    console.log("remove mentor");
-    setNewEvent({
-      ...newEvent,
-      mentor_list: newEvent.mentor_list.filter(
+    setEvent({
+      ...editedEvent,
+      mentor_list: editedEvent.mentor_list.filter(
         (removedMentor) => removedMentor !== mentor
       ),
     });
-    console.log(mentor);
-    console.log(newEvent.mentor_list);
+  };
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setEvent((eventDetails) => ({
+      ...eventDetails,
+      [id]: value,
+    }));
+  };
+
+  const parseDateTime = () => {
+    if (editedEvent.event_start) {
+      editedEvent.event_start = `${editedEvent.event_start}+8:00`;
+      console.log(editedEvent.event_start);
+    }
+    if (editedEvent.event_end) {
+      editedEvent.event_end = `${editedEvent.event_end}+8:00`;
+    }
+  };
+
+  const putData = async () => {
+    setLoading(true);
+    const response = await fetch(
+      `${process.env.REACT_APP_API_URL}events/${event.id}/`,
+      {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+        body: JSON.stringify(editedEvent),
+      }
+    );
+    return response.json();
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // mentorList();
+    // parseDateTime();
     if (validateForm(errorMessages)) {
-      postData().then((response) => {
+      putData().then((response) => {
         console.log(response);
         window.location.reload();
       });
@@ -114,11 +121,18 @@ function CreateEvent({ eventDateTime }) {
     }
   };
 
+  const handleKeyPress = (e) => {
+    // triggers if enter key is pressed
+    if (e.key === "Enter") {
+      //   handleSubmit(e);
+    }
+  };
+
   if (loading) return <FullPageLoader />;
 
   return (
-    <div className="overflow-container create-event">
-      <h2 className="form-title">Create New Event</h2>
+    <div className="overflow-container">
+      <h2 className="form-title">Edit Event</h2>
       <TextInput
         id="event_name"
         label="Event Name"
@@ -126,6 +140,7 @@ function CreateEvent({ eventDateTime }) {
         placeholder="Event Name"
         error={errorMessages.event_name}
         onChange={handleChange}
+        value={event.event_name}
       />
       <TextInput
         id="event_start"
@@ -133,7 +148,7 @@ function CreateEvent({ eventDateTime }) {
         type="datetime-local"
         placeholder="Event Start"
         onChange={handleChange}
-        value={newEvent.event_start}
+        value={start}
       />
       <TextInput
         id="event_end"
@@ -141,7 +156,7 @@ function CreateEvent({ eventDateTime }) {
         type="datetime-local"
         placeholder="Event End"
         onChange={handleChange}
-        value={newEvent.event_end}
+        value={end}
       />
       <TextInput
         id="event_location"
@@ -150,13 +165,19 @@ function CreateEvent({ eventDateTime }) {
         placeholder="Event Location"
         error={errorMessages.event_location}
         onChange={handleChange}
+        onKeyPress={handleKeyPress}
+        value={event.event_location}
       />
 
       <label>Add Mentors</label>
       <div className="mentor-added">
-        {newEvent.mentor_list.map((mentor, key) => {
-          return <MentorIcon mentor={mentor} removeMentor={removeMentor} />;
-        })}
+        {editedEvent.mentor_list ? (
+          editedEvent.mentor_list.map((mentor, key) => {
+            return <MentorIcon mentor={mentor} removeMentor={removeMentor} />;
+          })
+        ) : (
+          <></>
+        )}
       </div>
       <AutocompleteInput
         addMentor={addMentor}
@@ -168,4 +189,4 @@ function CreateEvent({ eventDateTime }) {
   );
 }
 
-export default CreateEvent;
+export default EditEvent;

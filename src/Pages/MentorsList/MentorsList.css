@@ -6,19 +6,6 @@
   font-size: medium;
 }
 
-.btn {
-  display: inline-block;
-  border: none;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #faa524;
-  text-align: center;
-  transition: all 0.2s;
-  margin: 1vw;
-  background-color: Transparent;
-}
-
 .header-list {
   border: #79479c solid 10px;
   background: #79479c;

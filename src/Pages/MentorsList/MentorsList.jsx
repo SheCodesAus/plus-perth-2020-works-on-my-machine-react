@@ -31,13 +31,13 @@ function MentorList() {
 
   return (
     <div>
-      <div className="AddMentorButton">
+      {/* <div className="AddMentorButton">
         <Button
           url="/addmentor"
           value="&#123; Add a mentor &#125;"
           type="Submit"
         />
-      </div>
+      </div> */}
       <div>
         <ImportCsv />
       </div>

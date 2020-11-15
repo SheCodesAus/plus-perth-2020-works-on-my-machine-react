@@ -12,6 +12,10 @@
   overflow: scroll;
 }
 
+.auto-list:empty {
+  border: none;
+}
+
 .auto-list div {
   padding: 3px;
   cursor: pointer;

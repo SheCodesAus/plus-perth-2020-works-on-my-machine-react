@@ -29,7 +29,6 @@ function EventsPage() {
           return results.json();
         })
         .then((data) => {
-          console.log(data);
           setEvents(data);
           setLoading(false);
         });

@@ -24,23 +24,27 @@ function AutocompleteInput({ addMentor, clearSuggestions }) {
   }, [token]);
 
   const checkMatches = (e) => {
-    console.log(e.target.value);
     let input = e.target.value.toLowerCase();
-    console.log(input);
     const mentors = mentorList.filter(({ mentor_name }) =>
       mentor_name.toLowerCase().startsWith(input)
     );
     // const newNamesDisplayed = [...namesDisplayed, mentor.name];
-    console.log({ input, mentors });
     setDisplayed(mentors);
   };
 
   useEffect(() => {
-    console.log(clearSuggestions);
     if (clearSuggestions) {
       setDisplayed([]);
     }
   }, [clearSuggestions]);
+
+  const handleKeyPress = (e) => {
+    // triggers if enter key is pressed
+    if (e.key === "Enter") {
+      e.preventDefault();
+      addMentor(namesDisplayed[0].mentor_name);
+    }
+  };
 
   return (
     <div className="autocomplete">
@@ -54,12 +58,13 @@ function AutocompleteInput({ addMentor, clearSuggestions }) {
             name="Add Mentor"
             placeholder="Add Mentor"
             onChange={checkMatches}
+            onKeyPress={handleKeyPress}
           />
         </div>
       </form>
       <div className="auto-list">
-        {namesDisplayed.map((mentor) => (
-          <div onClick={() => addMentor(mentor)}>{mentor.mentor_name}</div>
+        {namesDisplayed.map(({ mentor_name }) => (
+          <div onClick={() => addMentor(mentor_name)}>{mentor_name}</div>
         ))}
       </div>
     </div>
