@@ -8,11 +8,11 @@
   box-shadow: 0px 0px 5px gray;
 }
 
-.card-details {
+/* .card-details {
   margin: 1vw 0;
   color: #79479c;
   font-size: 12px;
-}
+} */
 
 .card-top {
   display: flex;

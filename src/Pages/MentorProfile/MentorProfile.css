@@ -1,13 +1,38 @@
+.profile-top {
+  display: flex;
+  align-items: flex-start;
+  height: 30vw;
+}
+
 .mentor-profile-card {
   width: 50%;
-  /* padding: 0 3vw; */
   padding-bottom: 10px;
+  box-shadow: 0px 0px 5px grey;
+  margin: 5px;
+  border-radius: 5px;
+  height: 100%;
 }
 
 .card-title {
-  margin: 15px;
+  margin: 15px 0;
   color: #faa524;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* font-size: 1vw; */
+  margin-bottom: 0;
+}
+
+.card-subheader {
+  font-size: 1.5vw;
+  color: #faa524;
+  margin: 1vw 0;
 }
 
 .contents {
@@ -17,7 +42,7 @@
 .card-details {
   margin: 15px;
   color: #79479c;
-  font-size: 12px;
+  font-size: calc(0.5vw + 7px);
   font-weight: bold;
 }
 
@@ -28,6 +53,7 @@
   display: flex;
   justify-content: center;
   border-radius: 3px 3px 0px 0px;
+  margin-top: 0;
 }
 
 .IndustryStyling {
@@ -59,16 +85,6 @@
   align-self: center;
 }
 
-.card-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px;
-  font-size: 1vw;
-  margin-bottom: 0;
-}
-
 .contents .skills {
   width: 100%;
 }
@@ -76,10 +92,6 @@
 .bio {
   color: black;
   font-weight: normal;
-  margin: 15px;
-}
-
-.MentorDetailStyle {
   margin: 15px;
 }
 
@@ -95,15 +107,14 @@
   border-radius: 5px;
   margin-top: 3px;
   margin-bottom: 10px;
-  }
+}
 
 .invitations_container {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-between;
-
-  }
+}
 
 .EventTitleStyle {
   margin: 15px;
@@ -123,4 +134,15 @@
   width: 99%;
   padding: 0px;
   margin: 0px;
+}
+
+.mentor-events-container {
+  width: 50%;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 5px grey;
+  margin: 5px;
+  border-radius: 5px;
+  /* height: 70vh; */
+  height: 100%;
+  overflow: scroll;
 }
