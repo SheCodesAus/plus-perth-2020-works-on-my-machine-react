@@ -39,8 +39,11 @@ function AutocompleteInput({ addMentor, clearSuggestions }) {
   }, [clearSuggestions]);
 
   const handleKeyPress = (e) => {
-    // triggers if enter key is pressed
-    if (e.key === "Enter") {
+    // triggers if enter or tab key is pressed
+    if (e.key === "Tab") {
+      e.preventDefault();
+      addMentor(namesDisplayed[0].mentor_name);
+    } else if (e.key === "Enter") {
       e.preventDefault();
       addMentor(namesDisplayed[0].mentor_name);
     }
@@ -58,7 +61,7 @@ function AutocompleteInput({ addMentor, clearSuggestions }) {
             name="Add Mentor"
             placeholder="Add Mentor"
             onChange={checkMatches}
-            onKeyPress={handleKeyPress}
+            onKeyDown={handleKeyPress}
           />
         </div>
       </form>

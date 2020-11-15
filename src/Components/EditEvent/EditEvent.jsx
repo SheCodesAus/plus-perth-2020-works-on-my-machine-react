@@ -56,10 +56,9 @@ function EditEvent({ event }) {
   };
 
   const addMentor = (mentor) => {
-    const name = mentor.mentor_name;
     setEvent({
       ...editedEvent,
-      mentor_list: [...editedEvent.mentor_list, name],
+      mentor_list: [...editedEvent.mentor_list, mentor],
     });
     document.getElementById("mentor-input").value = "";
     setClear((clearCount) => clearCount + 1);
@@ -82,16 +81,6 @@ function EditEvent({ event }) {
     }));
   };
 
-  const parseDateTime = () => {
-    if (editedEvent.event_start) {
-      editedEvent.event_start = `${editedEvent.event_start}+8:00`;
-      console.log(editedEvent.event_start);
-    }
-    if (editedEvent.event_end) {
-      editedEvent.event_end = `${editedEvent.event_end}+8:00`;
-    }
-  };
-
   const putData = async () => {
     setLoading(true);
     const response = await fetch(
@@ -110,7 +99,6 @@ function EditEvent({ event }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // parseDateTime();
     if (validateForm(errorMessages)) {
       putData().then((response) => {
         console.log(response);
@@ -165,7 +153,6 @@ function EditEvent({ event }) {
         placeholder="Event Location"
         error={errorMessages.event_location}
         onChange={handleChange}
-        onKeyPress={handleKeyPress}
         value={event.event_location}
       />
 
