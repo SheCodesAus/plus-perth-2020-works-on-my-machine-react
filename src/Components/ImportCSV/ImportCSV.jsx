@@ -51,12 +51,14 @@ function ImportCsv() {
   return (
     <div>
       <form>
-        <CSVReader onDrop={handleOnDrop} config={csvConfig}>
-          <span> Drop CSV file here </span>
-        </CSVReader>
-    <div className="SubmitButton">
-        <Button type="submit" onClick={SendMentorData} value="Submit" />
-    </div>
+        <div className="csv">
+          <CSVReader onDrop={handleOnDrop} config={csvConfig}>
+            <span className="csv-text"> Drop CSV file here </span>
+          </CSVReader>
+        </div>
+        <div className="SubmitButton">
+          <Button type="submit" onClick={SendMentorData} value="Submit" />
+        </div>
       </form>
     </div>
   );

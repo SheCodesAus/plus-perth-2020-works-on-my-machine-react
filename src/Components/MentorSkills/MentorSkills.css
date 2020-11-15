@@ -1,5 +1,5 @@
 .skills {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;
@@ -8,4 +8,5 @@
 
 .SkillButton {
   margin: 0.2vw;
+  padding: calc(0.5vw + 8px);
 }

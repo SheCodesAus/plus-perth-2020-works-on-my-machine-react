@@ -28,7 +28,7 @@ function MentorEvents() {
 
   return (
     <div>
-      <h4 className="top_card"> Event Invitations </h4>
+      <h3 className="top_card"> Event Invitations </h3>
       <div className="mentor-events">
         {eventsData.map((event, key) => {
           return <EventSummaryCard event={event} mentorId={id} />;

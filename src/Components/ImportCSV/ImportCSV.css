@@ -1,3 +1,14 @@
+.csv {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.csv-text {
+  width: 90%;
+  text-align: center;
+  margin: 0 auto;
+}
+
 .SubmitButton {
   display: flex;
   flex-direction: column;

@@ -1,9 +1,22 @@
-.AddMentorButton {
+.add-mentor {
+  box-shadow: 0px 0px 5px gray;
+  border-radius: 5px;
+  margin-bottom: 3vw;
+}
+
+.add-mentor-header {
+  border: #79479c solid 10px;
+  background: #79479c;
+  color: #faa524;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  align-items: center;
-  font-size: medium;
+  justify-content: center;
+  border-radius: 3px 3px 0px 0px;
+  margin-bottom: 2vw;
+}
+
+.mentor-list {
+  box-shadow: 0px 0px 5px gray;
+  border-radius: 5px;
 }
 
 .header-list {
@@ -16,20 +29,30 @@
 }
 
 .all-mentor {
-  display: grid;
-  flex-direction: row;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   width: 100%;
-  grid-auto-flow: column;
-  grid-gap: 1vw;
-  grid-template-rows: 30% 30%;
-  grid-template-columns: 33% 33% 33%;
-  height: 90rem;
+  flex-wrap: wrap;
+  max-height: 150vh;
+  overflow: scroll;
 }
 
 .all_mentor_card {
   padding: 1vw;
-  margin: 1vw;
   justify-content: space-around;
   box-shadow: 0px 0px 5px gray;
   border-radius: 5px;
+  width: 45%;
+  margin-top: 2vw;
+}
+
+@media (max-width: 800px) {
+  .all-mentor {
+    flex-direction: row;
+  }
+  .all_mentor_card {
+    width: 90%;
+    margin: 2vw 0;
+  }
 }

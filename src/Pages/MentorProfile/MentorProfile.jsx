@@ -40,9 +40,9 @@ const MentorProfileDetails = () => {
   return (
     <div>
       <ProcessStatus />
-      <div className="profile-top">
+      <div className="profile">
         <div className="mentor-profile-card show-border">
-          <h4 className="top_card"> Mentor Profile </h4>
+          <h3 className="top_card"> Mentor Profile </h3>
           <div className="contents">
             <div className="card-header">
               <h3 className="card-title">{mentorData.mentor_name}</h3>

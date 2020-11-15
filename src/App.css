@@ -18,3 +18,23 @@ input {
     "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
     "Helvetica Neue", sans-serif;
 }
+
+h1 {
+  font-size: calc(3vw + 10px);
+  margin: 0 0;
+}
+
+h2 {
+  font-size: calc(2vw + 10px);
+  margin: 0 0;
+}
+
+h3 {
+  font-size: calc(1.5vw + 10px);
+  margin: 0 0;
+}
+
+p {
+  font-size: calc(1vw + 10px);
+  /* margin: 0 0; */
+}

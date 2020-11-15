@@ -34,6 +34,7 @@
   border: 2px solid #7d7d7d;
   display: block;
   text-align: center;
+
   margin: 0 auto 10px auto;
   border-radius: 50%;
   background-color: white;
@@ -67,7 +68,9 @@
 }
 
 .step-detail p {
-  height: 2vw;
+  height: 4vw;
+  font-size: calc(0.5vw + 10px);
+  margin-top: 0;
 }
 
 /* .progressbar li.incomplete {

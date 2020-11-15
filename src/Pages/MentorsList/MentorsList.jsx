@@ -31,25 +31,28 @@ function MentorList() {
 
   return (
     <div>
-      {/* <div className="AddMentorButton">
+      <div className="add-mentor">
+        <h1 className="add-mentor-header"> Add Mentor CSV </h1>
+        {/* <div className="AddMentorButton">
         <Button
           url="/addmentor"
           value="&#123; Add a mentor &#125;"
           type="Submit"
         />
       </div> */}
-      <div>
         <ImportCsv />
       </div>
-      <h1 className="header-list"> Mentor list </h1>
-      <div className="all-mentor">
-        {mentorData.map((mentor, key, skills) => {
-          return (
-            <div className="all_mentor_card">
-              <MentorProfileCard key={key} mentorData={mentor} />
-            </div>
-          );
-        })}
+      <div className="mentor-list">
+        <h1 className="header-list"> Mentor list </h1>
+        <div className="all-mentor">
+          {mentorData.map((mentor, key, skills) => {
+            return (
+              <div className="all_mentor_card">
+                <MentorProfileCard key={key} mentorData={mentor} />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );

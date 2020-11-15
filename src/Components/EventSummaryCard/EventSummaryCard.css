@@ -13,6 +13,13 @@
 
 .event-summary-card .tags p {
   margin: 0.5vw;
+  padding: calc(0.5vw + 8px);
+  text-align: center;
+}
+
+.city-tag {
+  padding: calc(0.5vw + 8px);
+  border-radius: 5px;
 }
 
 .event-summary-card p {
@@ -27,11 +34,17 @@
   color: white;
   background-color: #79479c;
   width: fit-content;
-  padding: 0.6vw;
+  padding: calc(0.5vw + 8px);
   border-radius: 5px;
   margin-top: 1vw;
 }
 
 .event-summary-card .card-details {
   text-align: center;
+}
+
+@media (max-width: 1950px) {
+  .event-summary-card {
+    width: 95%;
+  }
 }

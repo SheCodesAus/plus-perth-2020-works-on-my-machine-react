@@ -7,5 +7,5 @@
 }
 
 .edit-btn img {
-  width: 2vw;
+  width: calc(2vw + 15px);
 }

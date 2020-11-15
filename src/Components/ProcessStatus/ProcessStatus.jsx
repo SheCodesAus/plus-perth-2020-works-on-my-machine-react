@@ -64,7 +64,7 @@ function ProcessStatus() {
   return (
     <div>
       <div className="mentor-process">
-        <h4 className="top_card">Mentor - Status </h4>
+        <h3 className="top_card">Mentor - Status </h3>
         <div className="container">
           <ul className="progressbar">
             <CheckStatus

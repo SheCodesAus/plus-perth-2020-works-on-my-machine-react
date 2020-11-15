@@ -37,13 +37,13 @@ function Nav(props) {
         </div>
       </div>
       <div className="nav">
-        <div className="Menu1">
+        <div className="nav-home-link">
           <Link to="/home">Home</Link>
         </div>
-        <div className="Menu1">
+        <div className="nav-calendar-link">
           <Link to="/calendar"> Calendar</Link>
         </div>
-        <div>
+        <div className="nav-mentors-link">
           <Link to="/mentorlist">Mentors</Link>
         </div>
       </div>

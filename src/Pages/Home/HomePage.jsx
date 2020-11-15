@@ -8,7 +8,7 @@ function HomePage() {
   const token = window.localStorage.getItem("token");
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const { id } = useParams()
+  const { id } = useParams();
 
   // Return true if event is in the past. Won't render event
   const oldEvent = (eventEnd) => {
@@ -49,13 +49,13 @@ function HomePage() {
   return (
     <div>
       <h1 className="header-list"> Upcoming Events </h1>
-      <div className="EventsHomepage">
+      <div className="home-events">
         {eventsData.length > 0 ? (
           eventsData.map((event, key) => {
             return oldEvent(event.event_end) ? (
               <></>
             ) : (
-              <div className="EventsHomepageLayout">
+              <div className="home-event-card">
                 <EventDetail key={key} event={event} />
               </div>
             );

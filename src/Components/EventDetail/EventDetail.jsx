@@ -52,7 +52,7 @@ function EventDetail(eventDetail) {
       <div className="event-detail-top">
         <div className="tags">
           <EventTypeTag eventType={event.event_type} />
-          <p className="city-tag">{event.event_city}</p>
+          <p className="city-tag event-tag">{event.event_city}</p>
         </div>
         <div className="edit-del-btns">
           <EditButton event={event} />
@@ -60,14 +60,22 @@ function EventDetail(eventDetail) {
         </div>
       </div>
       <h2 className="event-title">{event.event_name}</h2>
-      <p>
-        {start} to {end}
-      </p>
-      <p>{event.event_location}</p>
+      <div className="event-datetime">
+        <p>{start}</p>
+        <p>to</p>
+        <p>{end}</p>
+      </div>
+      <p className="event-location">{event.event_location}</p>
+      <p className="status-header">Mentors Invited</p>
       <div className="status">
+        {event.attendance_set.length === 0 ? (
+          <p>No Mentors Invited. </p>
+        ) : (
+          <></>
+        )}
         {attending.length > 0 ? (
           <div className="attending">
-            <h3>Attending</h3>
+            <p>Attending</p>
             {attending.map((mentor, key) => (
               <Link className="profile-link" to={`/mentorprofile/${mentor.id}`}>
                 {mentor.mentor_name}
@@ -79,7 +87,7 @@ function EventDetail(eventDetail) {
         )}
         {no_response.length > 0 ? (
           <div className="no-response">
-            <h3>Not Responded</h3>
+            <p>Not Responded</p>
             {no_response.map((mentor, key) => (
               <Link className="profile-link" to={`/mentorprofile/${mentor.id}`}>
                 {mentor.mentor_name}
@@ -91,7 +99,7 @@ function EventDetail(eventDetail) {
         )}
         {declined.length > 0 ? (
           <div className="declined">
-            <h3>Declined</h3>
+            <p>Declined</p>
             {declined.map((mentor, key) => (
               <Link className="profile-link" to={`/mentorprofile/${mentor.id}`}>
                 {mentor.mentor_name}
