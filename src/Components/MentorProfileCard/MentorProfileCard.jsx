@@ -2,10 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./MentorProfileCard.css";
 
+
+
 function MentorProfileCard(props) {
   //variables
   const { mentorData } = props;
+  console.log(mentorData)
   const skills = mentorData.skills.replaceAll(" ", "").split(",");
+
 
   // template
   return (

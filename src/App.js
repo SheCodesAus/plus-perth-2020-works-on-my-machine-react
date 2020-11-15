@@ -21,9 +21,9 @@ function App() {
     <Router>
       <Nav image={require("./Logo/SheCodes-Logo.png")} />
       <Switch>
-        <PrivateRoute path="/mentorprofile/:id">
+        <Route path="/mentorprofile/:id">
           <MentorProfile />
-        </PrivateRoute>
+        </Route>
         <PrivateRoute path="/mentorlist">
           <MentorList />
         </PrivateRoute>

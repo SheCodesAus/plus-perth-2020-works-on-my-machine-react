@@ -1,0 +1,37 @@
+.event-summary-card {
+  box-shadow: 0px 0px 5px grey;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 47%;
+  padding: 0.5vw;
+  padding-bottom: 1vw;
+  margin-bottom: 0.5vw;
+}
+
+.event-summary-card .tags p {
+  margin: 0.5vw;
+}
+
+.event-summary-card p {
+  margin: 0 0;
+}
+
+.event-summary-card h3 {
+  margin-bottom: 0.5vw;
+}
+
+.event-summary-card .status-tag {
+  color: white;
+  background-color: #79479c;
+  width: fit-content;
+  padding: 0.6vw;
+  border-radius: 5px;
+  margin-top: 1vw;
+}
+
+.event-summary-card .card-details {
+  text-align: center;
+}
