@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import LoadingSpinner from "../../Components/FullPageLoader/FullPageLoader";
-
+import { useParams } from "react-router-dom";
 import EventDetail from "../../Components/EventDetail/EventDetail";
 import "./HomePage.css";
 
@@ -8,6 +8,7 @@ function HomePage() {
   const token = window.localStorage.getItem("token");
   const [eventsData, setEventsData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { id } = useParams()
 
   // Return true if event is in the past. Won't render event
   const oldEvent = (eventEnd) => {
