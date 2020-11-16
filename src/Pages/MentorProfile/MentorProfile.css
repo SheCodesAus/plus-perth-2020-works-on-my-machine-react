@@ -30,7 +30,7 @@
 }
 
 .card-subheader {
-  font-size: 1.5vw;
+  font-size: calc(1.5vw + 10px);
   color: #faa524;
   margin: 1vw 0;
 }

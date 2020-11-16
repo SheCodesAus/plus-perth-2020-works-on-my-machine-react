@@ -1,8 +1,6 @@
 import React from "react";
 import { convertDate } from "../../Helpers/ConvertDateTime";
 import CompleteButton from "../CompleteButton/CompleteButton";
-// import "./CheckStatus.css";
-import "../Test/Test.css";
 
 function CheckStatus({ step, stepKey, stepName, date, markComplete }) {
   const dateCompleted = convertDate(date);

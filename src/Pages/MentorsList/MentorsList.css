@@ -34,8 +34,7 @@
   justify-content: space-evenly;
   width: 100%;
   flex-wrap: wrap;
-  max-height: 150vh;
-  overflow: scroll;
+  height: fit-content;
 }
 
 .all_mentor_card {

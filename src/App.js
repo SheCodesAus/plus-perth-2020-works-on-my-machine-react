@@ -15,7 +15,6 @@ import SocialAuthRedirect from "./Pages/SocialAuthRedirect/SocialAuthRedirect";
 import Error404 from "../src/Components/Error404/Error404";
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute/PublicRoute";
-import Test from "./Components/Test/Test";
 
 function App() {
   return (
@@ -45,9 +44,6 @@ function App() {
         </PublicRoute>
         <Route path="/social-auth-success">
           <SocialAuthRedirect />
-        </Route>
-        <Route path="/test">
-          <Test />
         </Route>
         <Route>
           <Route path="*" exact={true} component={Error404} />
