@@ -41,17 +41,17 @@ function EventsPage() {
 
   // Pop up modal
   // Set the positioning for event pop up modal
-  const customStyles = {
-    content: {
-      width: "50%",
-      top: "100%",
-      left: "50%",
-      right: "auto",
-      bottom: "auto",
-      marginRight: "-50%",
-      transform: "translate(50%, 20%)",
-    },
-  };
+  // const customStyles = {
+  //   content: {
+  //     width: "50%",
+  //     top: "100%",
+  //     left: "50%",
+  //     right: "auto",
+  //     bottom: "auto",
+  //     marginRight: "-50%",
+  //     transform: "translate(50%, 20%)",
+  //   },
+  // };
 
   // Set to app root
   Modal.setAppElement("#root");
@@ -89,7 +89,7 @@ function EventsPage() {
       />
       <Modal
         className="event-modal"
-        style={customStyles}
+        // style={customStyles}
         isOpen={modalIsOpen}
         // onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}

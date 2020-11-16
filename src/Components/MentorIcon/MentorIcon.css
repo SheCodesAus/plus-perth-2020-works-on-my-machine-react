@@ -1,7 +1,8 @@
 .mentor-icon {
   display: flex;
-  margin: 0 0.5vw;
-  margin-top: 0.5vw;
+  margin: 1vw;
+  padding: 0.5vw;
+  /* margin-top: 0.5vw; */
   width: fit-content;
   background: rgba(211, 211, 211, 0.3);
 }
@@ -9,11 +10,13 @@
 .mentor-icon-name {
   text-align: center;
   padding-left: 0.5vw;
+  font-size: calc(0.5vw + 10px);
 }
 
 .mentor-icon-btn {
   background: transparent;
   border: none !important;
+  font-size: calc(0.5vw + 10px);
 }
 
 .mentor-icon-btn:hover {

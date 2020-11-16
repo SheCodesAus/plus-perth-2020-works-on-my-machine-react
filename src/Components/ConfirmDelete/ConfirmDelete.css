@@ -7,15 +7,26 @@
   box-shadow: rgba(106, 108, 124, 0.5) 1px -1px 12px -1px,
     white -8px -8px 12px -2px;
   border-radius: 5px;
+  padding-top: 1vw;
+}
+
+.confirm-delete-modal p {
+  padding: 0 3vw;
 }
 
 .modal-btns {
   display: flex;
-  justify-content: space-evenly;
-  width: 50%;
+  justify-content: center;
   margin: 0 auto;
 }
 
-.modal-btns input {
+.modal-btns .btn {
   width: 100%;
+  font-size: calc(1vw + 10px);
+}
+
+@media (max-width: 800px) {
+  .confirm-delete-modal {
+    width: 50%;
+  }
 }

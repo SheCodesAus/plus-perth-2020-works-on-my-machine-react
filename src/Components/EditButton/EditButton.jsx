@@ -22,7 +22,7 @@ function EditButton({ event }) {
         <img src={EditIcon} alt="Edit Icon" onClick={openModal} />
       </button>
       <Modal
-        className="edit-event-modal"
+        className="event-modal"
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Confirm Delete"

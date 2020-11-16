@@ -56,7 +56,7 @@ function AutocompleteInput({ addMentor, clearSuggestions }) {
           {/* Add Mentor */}
           <input
             id="mentor-input"
-            className="add-mentor form-input"
+            className="form-input"
             type="text"
             name="Add Mentor"
             placeholder="Add Mentor"

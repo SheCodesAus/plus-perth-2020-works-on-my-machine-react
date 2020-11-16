@@ -48,7 +48,7 @@ function EventDetail(eventDetail) {
   if (loading) return <FullPageLoader />;
 
   return (
-    <div className="event-detail">
+    <div className="overflow-container event-detail">
       <div className="event-detail-top">
         <div className="tags">
           <EventTypeTag eventType={event.event_type} />

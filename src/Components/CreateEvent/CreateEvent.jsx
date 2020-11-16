@@ -152,7 +152,7 @@ function CreateEvent({ eventDateTime }) {
         onChange={handleChange}
       />
 
-      <label>Add Mentors</label>
+      <label className="form-item">Add Mentors</label>
       <div className="mentor-added">
         {newEvent.mentor_list.map((mentor, key) => {
           return <MentorIcon mentor={mentor} removeMentor={removeMentor} />;

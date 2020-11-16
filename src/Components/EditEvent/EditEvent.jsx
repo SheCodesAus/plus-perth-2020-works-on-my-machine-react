@@ -156,7 +156,7 @@ function EditEvent({ event }) {
         value={event.event_location}
       />
 
-      <label>Add Mentors</label>
+      <label className="form-item">Add Mentors</label>
       <div className="mentor-added">
         {editedEvent.mentor_list ? (
           editedEvent.mentor_list.map((mentor, key) => {
