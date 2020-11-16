@@ -30,6 +30,10 @@
   margin-bottom: 0.5vw;
 }
 
+.event-summary-card {
+  margin: 1vw;
+}
+
 .event-summary-card .status-tag {
   color: white;
   background-color: #79479c;

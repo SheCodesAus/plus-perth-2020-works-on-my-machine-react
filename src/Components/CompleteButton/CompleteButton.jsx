@@ -15,7 +15,8 @@ function CompleteButton({ markComplete, stepKey, ...props }) {
         onClick={() => markComplete(stepKey)}
         {...props}
       >
-        <img src={require("../Images/check-mark.svg")} alt="checkmark" />
+        {/* <img src={require("../Images/check-mark.svg")} alt="checkmark" /> */}
+        Mark Complete
       </button>
     </form>
   );

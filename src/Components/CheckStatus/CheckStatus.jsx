@@ -1,25 +1,26 @@
 import React from "react";
 import { convertDate } from "../../Helpers/ConvertDateTime";
 import CompleteButton from "../CompleteButton/CompleteButton";
-import "./CheckStatus.css";
+// import "./CheckStatus.css";
+import "../Test/Test.css";
 
 function CheckStatus({ step, stepKey, stepName, date, markComplete }) {
   const dateCompleted = convertDate(date);
   return (
     <>
       {step ? (
-        <li className="completed">
-          <div className="step-detail">
-            <p>{stepName}:</p>
-            <p>{dateCompleted}</p>
-          </div>
+        <li className="li-incomplete">
+          {/* <li> */}
+          <p className="incomplete">
+            <CompleteButton markComplete={markComplete} stepKey={stepKey} />
+          </p>
+          <span className="step-name">{stepName}</span>
         </li>
       ) : (
-        <li className="incomplete">
-          <div className="step-detail">
-            <p>{stepName}:</p>
-            <CompleteButton markComplete={markComplete} stepKey={stepKey} />
-          </div>
+        <li className="li-complete">
+          {/* <li> */}
+          <p className="complete">{dateCompleted}</p>
+          <span className="step-name step-complete">{stepName}</span>
         </li>
       )}
     </>
