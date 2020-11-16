@@ -15,7 +15,7 @@ function EventSummaryCard({ event, mentorId }) {
       } else if (mentor.status === "declined") {
         return (mentorStatus = "Declined");
       } else {
-        return (mentorStatus = "Not Reponded");
+        return (mentorStatus = "Not Responded");
       }
     }
   });

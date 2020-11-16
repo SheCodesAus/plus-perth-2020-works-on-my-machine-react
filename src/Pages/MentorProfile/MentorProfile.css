@@ -106,14 +106,17 @@
   box-shadow: 0px 0px 5px grey;
   margin: 5px;
   border-radius: 5px;
-  /* height: 70vh; */
   overflow: scroll;
+  margin-bottom: 1vw;
+}
+
+.mentor-events-container > div {
+  height: 0;
 }
 
 @media (max-width: 650px) {
-  .profile {
+  .mentor-process-events {
     flex-direction: column;
-    max-height: 200vw;
   }
   .mentor-profile-card {
     width: 100%;
@@ -121,5 +124,9 @@
 
   .mentor-events-container {
     width: 100%;
+  }
+
+  .mentor-events-container > div {
+    height: 500px;
   }
 }
