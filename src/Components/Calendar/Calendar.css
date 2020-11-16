@@ -3,6 +3,10 @@
   margin: 1vw auto;
 }
 
+.rbc-toolbar {
+  flex-wrap: nowrap;
+}
+
 .rbc-toolbar-label {
   font-size: calc(10px + 1vw);
 }
@@ -31,10 +35,6 @@
 }
 .rbc-day-slot .rbc-event {
   border: none;
-}
-
-.rbc-day-slot .rbc-events-container {
-  margin: 0 auto;
 }
 
 .plus {
@@ -67,4 +67,56 @@
 }
 .rbc-row-content {
   z-index: 0;
+}
+
+.long-event .rbc-event-label {
+  font-size: calc(0.6vw + 5px);
+  white-space: unset;
+  text-align: center;
+  margin-bottom: 0.2vw;
+}
+
+.short-event .rbc-event-label {
+  font-size: 0;
+}
+
+.rbc-event-content {
+  font-size: calc(0.5vw + 10px);
+  text-align: center;
+}
+
+.rbc-time-gutter .rbc-time-column {
+  white-space: unset;
+  font-size: calc(0.5vw + 10px);
+}
+
+.rbc-time-slot {
+  white-space: unset;
+  width: calc(7.5vw + 10px);
+  font-size: calc(0.5vw + 10px);
+  text-align: center;
+}
+
+.rbc-time-header-gutter {
+  width: calc(7.5vw + 10px) !important;
+  max-width: calc(7.5vw + 10px) !important;
+  min-width: calc(7.5vw + 10px) !important;
+}
+
+.rbc-header {
+  font-size: calc(0.5vw + 10px);
+}
+
+@media (max-width: 800px) {
+  .calendar-component {
+    height: 100vw !important;
+  }
+
+  .rbc-time-slot {
+    font-size: calc(0.5vw + 7px);
+    width: calc(7.5vw + 10px);
+  }
+  .rbc-time-slot .rbc-label {
+    white-space: break-spaces;
+  }
 }

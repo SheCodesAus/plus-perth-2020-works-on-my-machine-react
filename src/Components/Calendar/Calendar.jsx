@@ -2,7 +2,10 @@ import React from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
-import { GetEventType } from "../../Helpers/EventTypeClass.js";
+import {
+  GetEventType,
+  ShortEvent,
+} from "../../Helpers/CalendarStyleHelpers.js";
 import "./Calendar.css";
 
 function MyCalendar({ events, createEvent, viewEvent }) {
@@ -10,8 +13,9 @@ function MyCalendar({ events, createEvent, viewEvent }) {
   const localizer = momentLocalizer(moment);
 
   const eventStyleGetter = (event, start, end, isSelected) => {
-    const className = GetEventType(event.event_type);
-    return { className: className };
+    const eventClass = GetEventType(event.event_type);
+    const lengthClass = ShortEvent(event.event_start, event.event_end);
+    return { className: `${eventClass} ${lengthClass}` };
   };
 
   const parseStartDate = (event, start, end) => {
@@ -23,10 +27,10 @@ function MyCalendar({ events, createEvent, viewEvent }) {
   };
 
   return (
-    <div className="calendar-component" style={{ height: "500pt" }}>
+    <div className="calendar-component" style={{ height: "50vw" }}>
       <Calendar
         events={events}
-        titleAccessor="event_name"
+        titleAccessor="event_type"
         startAccessor={parseStartDate}
         endAccessor={parseEndDate}
         defaultDate={moment().toDate()}
@@ -38,6 +42,7 @@ function MyCalendar({ events, createEvent, viewEvent }) {
         onSelectEvent={viewEvent}
         eventPropGetter={eventStyleGetter}
         scrollToTime={moment().set({ h: 9, m: 0 }).toDate()}
+        // tooltipAccessor="event_name"
       />
     </div>
   );

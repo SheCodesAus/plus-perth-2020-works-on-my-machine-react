@@ -1,5 +1,5 @@
 import React from "react";
-import { GetEventType } from "../../Helpers/EventTypeClass.js";
+import { GetEventType } from "../../Helpers/CalendarStyleHelpers.js";
 import "./EventTypeTag.css";
 
 function EventTypeTag({ eventType }) {

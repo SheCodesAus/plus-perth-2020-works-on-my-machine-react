@@ -82,7 +82,6 @@ function EventsPage() {
   //template
   return (
     <div className="calendar-page">
-      <h1> Calendar </h1>
       <MyCalendar
         events={events}
         createEvent={createEvent}
