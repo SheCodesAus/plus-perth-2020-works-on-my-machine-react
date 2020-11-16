@@ -39,7 +39,6 @@ const MentorProfileDetails = () => {
 
   return (
     <div>
-      <ProcessStatus />
       <div className="profile">
         <div className="mentor-profile-card show-border">
           <h3 className="top_card"> Mentor Profile </h3>
@@ -58,24 +57,15 @@ const MentorProfileDetails = () => {
             </div>
           </div>
         </div>
-        <div className="mentor-events-container show-border">
+      </div>
+      <div className="mentor-process-events">
+        <div className="mentor-process-container">
+          <ProcessStatus />
+        </div>
+        <div className="mentor-events-container">
           <MentorEvents />
         </div>
       </div>
-
-      {/* <h4 className="top_card_events"> Event Invitations </h4>
-      <div className="invitations_container">
-        {eventsData.map((eventData, key) => (
-          <div className="Mentor_Events_Card">
-            <p className="EventTitleStyle">{eventData.event_type}</p>
-            <p className="event-location-style">{eventData.event_city}</p>
-            <p className="card-details">
-              {eventData.event_start} to {eventData.event_end}
-            </p>
-          </div>
-        ))}
-        ;
-      </div> */}
     </div>
   );
 };

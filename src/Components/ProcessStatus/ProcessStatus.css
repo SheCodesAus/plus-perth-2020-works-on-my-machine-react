@@ -1,4 +1,4 @@
-.mentor-process {
+/* .mentor-process {
   width: 100%;
   box-shadow: 0px 0px 5px gray;
   margin: 5px auto;
@@ -10,12 +10,11 @@
   margin: 1vw auto;
   padding: 2vw;
 }
-.progressbar {
+.progress-bar {
   counter-reset: step;
   display: flex;
-  /* align-items: center; */
 }
-.progressbar li {
+.progress-bar li {
   list-style-type: none;
   width: 25%;
   float: left;
@@ -25,9 +24,10 @@
   text-transform: uppercase;
   color: #7d7d7d;
 }
-.progressbar li:before {
-  width: 30px;
-  height: 30px;
+
+.progress-bar .li-incomplete:before {
+  width: 3vw;
+  height: 3vw;
   content: counter(step);
   counter-increment: step;
   line-height: 30px;
@@ -38,23 +38,18 @@
   border-radius: 50%;
   background-color: white;
 }
-.progressbar li:after {
-  width: 100%;
-  height: 2px;
+
+.progress-bar .li-complete:before {
+  width: 3vw;
+  height: 3vw;
   content: "";
-  position: absolute;
-  background-color: #7d7d7d;
-  top: 15px;
-  left: -50%;
-  z-index: -1;
-}
-.progressbar li:first-child:after {
-  content: none;
-}
-.progressbar li.completed {
-  color: green;
-}
-.progressbar li.completed:before {
+  counter-increment: step;
+  line-height: 30px;
+  border: 2px solid #55b776;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  border-radius: 50%;
   border-color: #55b776;
   content: "";
   background: url("../Images/check-mark.svg") no-repeat 0 0;
@@ -62,22 +57,34 @@
   background-color: white;
   background-position: center;
 }
-.progressbar li.completed + li:after {
+
+.progress-bar li:after {
+  width: 100%;
+  height: 2px;
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -50%;
+  z-index: -1;
+}
+
+.progress-bar .li-incomplete:after {
+  background-color: #7d7d7d;
+}
+
+.progress-bar .li-complete:after {
   background-color: #55b776;
 }
 
-.step-detail p {
-  height: 4vw;
-  font-size: calc(0.5vw + 10px);
-  margin-top: 0;
+.progress-bar li:first-child:after {
+  content: none;
 }
 
-/* .progressbar li.incomplete {
-  color: grey;
+.li-complete p,
+.li-complete span {
+  color: #55b776;
 }
-.progressbar li.incomplete:before {
-  border-color: grey;
-}
-.progressbar li.incomplete + li:after {
-  background-color: grey;
+
+p {
+  font-size: calc(0.5vw + 10px);
 } */
