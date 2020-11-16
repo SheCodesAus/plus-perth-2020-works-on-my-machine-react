@@ -1,27 +1,32 @@
 .autocomplete .form-item {
-  margin-bottom: 0;
-  padding-bottom: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .auto-list {
-  width: 68%;
   margin: 0 auto;
   border: 2px solid #79479c;
   border-top: none;
-  max-height: 10vh;
+  max-height: 25vh;
   overflow: scroll;
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.auto-list div {
+  color: black;
+  font-weight: normal;
+  font-size: calc(1vw + 10px);
+  padding: 3px;
+  cursor: pointer;
 }
 
 .auto-list:empty {
   border: none;
 }
 
-.auto-list div {
-  padding: 3px;
-  cursor: pointer;
-}
-
-.add-mentor.form-input {
-  margin-bottom: 0;
-  padding-bottom: 0;
+.autocomplete .form-input {
+  /* padding: 0 0.5vw; */
+  margin: 0;
+  padding: 0;
 }

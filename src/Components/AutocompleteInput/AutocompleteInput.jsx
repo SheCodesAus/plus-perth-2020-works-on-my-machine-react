@@ -65,10 +65,12 @@ function AutocompleteInput({ addMentor, clearSuggestions }) {
           />
         </div>
       </form>
-      <div className="auto-list">
-        {namesDisplayed.map(({ mentor_name }) => (
-          <div onClick={() => addMentor(mentor_name)}>{mentor_name}</div>
-        ))}
+      <div className="form-item">
+        <div className="auto-list">
+          {namesDisplayed.map(({ mentor_name }) => (
+            <div onClick={() => addMentor(mentor_name)}>{mentor_name}</div>
+          ))}
+        </div>
       </div>
     </div>
   );
