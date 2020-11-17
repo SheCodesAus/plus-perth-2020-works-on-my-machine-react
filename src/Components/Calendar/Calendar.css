@@ -124,4 +124,17 @@
   .rbc-time-slot .rbc-label {
     white-space: break-spaces;
   }
+
+  .rbc-event-content {
+    font-size: calc(0.5vw + 7px);
+  }
+}
+
+@media (max-width: 800px) {
+  .rbc-event-content {
+    font-size: calc(0.5vw + 5px);
+  }
+  .rbc-event-label {
+    font-size: calc(0.5vw + 5px);
+  }
 }
