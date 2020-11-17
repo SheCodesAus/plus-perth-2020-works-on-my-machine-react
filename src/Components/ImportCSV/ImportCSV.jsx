@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import ReactDom from "react-dom";
 import Button from "../Button/Button";
 import { CSVReader } from "react-papaparse";
 
 import "./ImportCSV.css";
-import { useHistory } from "react-router";
+import LoadingSpinner from "../FullPageLoader/FullPageLoader";
 
 function ImportCsv() {
+  const [loading, setLoading] = useState(false);
   const history = useHistory();
   const token = window.localStorage.getItem("token");
   var mentorData = [];
@@ -40,13 +42,17 @@ function ImportCsv() {
 
   const SendMentorData = (e) => {
     e.preventDefault();
+    setLoading(true);
     if (mentorData.length > 0) {
       postData().then((response) => {
         console.log(response);
+        setLoading(false);
         window.location.reload();
       });
     }
   };
+
+  if (loading) return <LoadingSpinner />;
 
   return (
     <div>
