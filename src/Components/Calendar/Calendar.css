@@ -16,13 +16,14 @@
   box-shadow: rgba(106, 108, 124, 0.5) 4px 4px 6px -2px,
     white -8px -8px 12px -2px;
   background: linear-gradient(90deg, rgb(241, 241, 243), rgb(229, 229, 234));
+  display: flex;
+  align-items: center;
 }
 
 .rbc-btn-group button {
-  font-size: calc(8px + 1vw);
-  padding: 10px;
+  font-size: calc(0.5vw + 8px);
+  padding: 1.5vw;
   text-align: center;
-  font-size: 1.5vw;
   cursor: pointer;
   border: none;
   border-radius: 10px;
