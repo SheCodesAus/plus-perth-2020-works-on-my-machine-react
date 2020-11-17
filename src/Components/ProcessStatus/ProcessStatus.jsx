@@ -25,7 +25,6 @@ function ProcessStatus() {
         .then((data) => {
           setMentorProcess(data);
           setLoading(false);
-          console.log(data);
         });
     }
   }, [token]);
